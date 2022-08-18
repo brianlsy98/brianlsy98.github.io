@@ -1,18 +1,18 @@
-title: Abhishek Nagekar
-description: Web & Security Engineer
-site_title: '@abhn - Abhishek Nagekar'
+title: Sungyoung Lee
+description: Undergraduate Student of EECS, Seoul National University
+site_title: '@brianlsy - Sungyoung Lee'
 
 # Build settings
 markdown: kramdown
 exclude: [vendor/ruby]
 
 # Personalization
-github_username: abhn
+github_username: brianlsy
 blog_url: https://www.nagekar.com
-email: abhishek@nagekar.com
-keybase_username: abhn
-twitter_username: abhn_
-reddit_username: abhn
+email: brianlsy@snu.ac.kr
+keybase_username: brianlsy
+twitter_username: brianlsy_
+reddit_username: brianlsy
 
 # absolute or relative
 profile_picture: assets/images/pp.jpg
