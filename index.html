@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+        
+    <title>@brianlsy - Sungyoung Lee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="k4p92PduVR_7ZqAlB8-OMnONNOl9GkkmUh4dlKfbY7o" />
+    
+    <link rel="stylesheet" href="vendor/css/normalize.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/css/hint.base.min.css"/>
+    <link rel="stylesheet" href="vendor/css/semi-transparent-buttons.css"/>
+    <link rel="stylesheet" href="assets/css/progress.css"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="assets/css/card.css"/>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <meta name="description" content="Portfolio - Sungyoung Lee | Reinforcement Learning, Analog & Digital IC">
+
+</head>
+
+
+<body>
+
+<section class="head" id="nav">
+    <div class="head-inner-wrap">
+        <div class="profile-pic-div animated">
+            <a href="#about" class="profile-pic-link"><img src="assets/images/pp.jpg" class="profile-pic"/></a>
+        </div>
+        <div class="head-name head-title animated" id="head-name">Sungyoung Lee</div>
+        <div class="head-punchline animated">Web & Security Engineer</div>
+        <div class="head-menu-wrap">
+            <a class="semi-transparent-button with-border nav-links" href="#about">ABOUT</a>
+            <a class="semi-transparent-button with-border nav-links" href="#skills">SKILLS</a>
+            <a class="semi-transparent-button with-border nav-links" href="#projects">PROJECTS</a>
+            <a class="semi-transparent-button with-border nav-links" href="#blog-posts">BLOG</a>
+        </div>
+    </div>
+</section>
+
+
+<div class="section-wrapper">
+    <section class="section about" id="about">
+        <div id="about-text">
+            <div class="section-heading">About</div>
+            <p class="paragraph-text justify-text">
+                I like working with computers. It's my hobby and my profession. I love the Internet and the way it works, and I am comfortable working on web applications; frontend and backend. I've worked on smartphone apps, both native and hybrid, and I have experience with Linux system administration. I have a keen interest in securing information systems and building secure systems.
+            </p>
+            <p class="paragraph-text justify-text">
+                My role models include old-school programmers and <a href="https://stallman.org/articles/on-hacking.html">hackers</a> who never make it to the mainstream news, but are responsible for most of the software that most people use on an everyday basis. I promote, support and use free and open source software to the extent possible.
+            </p>
+            <p class="paragraph-text justify-text">
+                I maintain a little blog at <a href="https://www.nagekar.com">nagekar.com</a> where I write about my recent interests and other activities. I post my software projects on <a href="https://github.com/abhn">GitHub</a>. My email address can be found at the <span class="extra-link"><a href="#extra">bottom</a></span> of this page.
+            </p>
+        </div>
+    </section>
+</div>
+
+
+<div class="section-wrapper">
+    <section class="section skills" id="skills">
+        <div>
+            <div class="section-heading" id="skills-text">Skills</div>
+
+            <div class="skills-grid">
+                <div class="what-i-do">
+                    <h3 class="center-align skills-subsection">Summary</h3>
+                    <p class="paragraph-text center-align">
+                        I'm an EECS Undergraduate Student of Seoul National University, South Korea. My current interests are in Machine Learning(especially RL), Integrated Circuit Design, and Circuit Design Automation.
+                    </p>
+                </div>
+                <div class="technical-skills">
+                    <h3 class="center-align skills-subsection">Technical</h3>
+                    <div class="progress-bars">
+                        <div class="skillbar clearfix " data-percent="100%">
+                            <div class="skillbar-title" style="background: #2980b9;"><span>Pytorch/Keras</span></div>
+                            <div class="skillbar-bar" style="background: #3498db;"></div>
+                        </div> <!-- End Skill Bar -->
+
+                        <div class="skillbar clearfix " data-percent="100%">
+                            <div class="skillbar-title" style="background: #2980b9;"><span>Virtuoso/Verilog</span></div>
+                            <div class="skillbar-bar" style="background: #3498db;"></div>
+                        </div> <!-- End Skill Bar -->
+
+                        <div class="skillbar clearfix " data-percent="100%">
+                            <div class="skillbar-title" style="background: #2980b9;"><span>Linux</span></div>
+                            <div class="skillbar-bar" style="background: #3498db"></div>
+                        </div> <!-- End Skill Bar -->
+
+                        <div class="skillbar clearfix " data-percent="100%">
+                            <div class="skillbar-title" style="background: #2980b9;"><span>Bash</span></div>
+                            <div class="skillbar-bar" style="background: #3498db"></div>
+                        </div> <!-- End Skill Bar -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="section-wrapper">
+    <section class="section projects" id="projects">
+        <div class="full-width">
+            <div class="section-heading" id="featured-projects-text">Projects</div>
+            
+                <div class="project-technologies">
+
+                    <a id="featured" class="semi-transparent-button with-border white-button" onclick="selected('featured')">Featured</a>
+                    <a id="all" class="semi-transparent-button with-border white-button" onclick="selected('all')">All</a>
+                    <a id="webdev" class="semi-transparent-button with-border white-button" onclick="selected('webdev')">WebDev</a>
+                    <a id="native" class="semi-transparent-button with-border white-button" onclick="selected('native')">Native</a>
+                    <a id="security" class="semi-transparent-button with-border white-button" onclick="selected('security')">Security</a>
+                    <a id="diy" class="semi-transparent-button with-border white-button" onclick="selected('diy')">DIY</a>
+
+                </div>
+
+            <div class="projects-wrapper">
+            <!-- filled in by js -->
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="section-wrapper">
+    <section class="section" id="blog-posts">
+        <div class="full-width">
+            <div class="section-heading" id="recent-posts-text">Blog</div>
+            <div class="blogs-wrapper" id="rss-feeds"></div>
+        </div>
+    </section>
+</div>
+        
+<div class="section-wrapper">
+    <section class="section extra" id="extra">
+        <div>
+            <div class="section-heading" id="chat-text">Contact</div>
+            <p class="paragraph-text justify-text">
+                I'd love to hear from you! I'm open to collaborations, especially on open source projects. Interesting work opportunity? Shoot. Just want to have a coffee and talk about stars, cars or Pokémon? Awesome. 
+            </p>
+            <p class="paragraph-text justify-text">
+                Please feel free to write to me for anything: <a href="mailto:abhishek@nagekar.com">abhishek@nagekar.com</a> (<a href="https://www.nagekar.com/publickey.abhishek@nagekar.com.asc">PGP Key</a>). It might take me a day to get back, but rest assured, you'll hear from me.
+            </p>
+            <p class="paragraph-text justify-text">
+                My resume is available here: <a href="https://www.nagekar.com/resume/resume.pdf">PDF</a>, <a href="https://www.nagekar.com/resume/resume.docx">DOC</a>
+            </p>
+            <div class="extra-links">
+                <span class="hint--bottom bottom-link" aria-label="Email">
+                    <a href="mailto:abhishek@nagekar.com"><i class="head-icon fas fa-envelope"></i></a>
+                </span>
+                <span class="hint--bottom bottom-link" aria-label="PGP Key">
+                    <a href="https://www.nagekar.com/publickey.abhishek@nagekar.com.asc"><i class="head-icon fas fa-key"></i></a>
+                </span>
+                <span class="hint--bottom bottom-link" aria-label="GitHub">
+                    <a href="https://github.com/abhn"><i class="head-icon fab fa-github"></i></a>
+                </span>
+                <span class="hint--bottom bottom-link" aria-label="Web Blog">
+                    <a href="https://www.nagekar.com"><i class="head-icon fas fa-rss"></i></a>
+                </span>
+                <span class="hint--bottom bottom-link" aria-label="Keybase">
+                    <a href="https://keybase.io/abhn"><i class="head-icon fab fa-keybase"></i></a>
+                </span>
+                <!-- <span class="hint--bottom bottom-link" aria-label="Reddit">
+                    <a href="https://www.reddit.com/u/abhn"><i class="head-icon fab fa-reddit"></i></a>
+                </span>
+                <span class="hint--bottom bottom-link" aria-label="Twitter">
+                    <a href="https://twitter.com/abhn_"><i class="head-icon fab fa-twitter"></i></a>
+                </span> -->
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer footer-text">
+    Sungyoung Lee &copy; 2022
+</footer>
+
+
+<script src="vendor/js/jquery-3.3.1.js"></script>
+<script src="vendor/js/jquery.smooth-scroll.js"></script>
+<script src="vendor/js/css-polyfills.min.js"></script>
+<script src="vendor/js/flexibility.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/projects.js"></script>
+
+</body>
+</html>
