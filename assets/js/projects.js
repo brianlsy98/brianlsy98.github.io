@@ -11,8 +11,8 @@ let render_projects = (slug) => {
 
     let projects_obj = [
         {
-            image: 'assets/images/is_project.jpg',
-            link: 'https://github.com/brianlsy98/IS_GOTOMARS_PPO',
+            image: 'assets/images/IS_project_car.png',
+            link: 'https://github.com/brianlsy98/CarRacing_DeepRL',
             title: 'Car Racing Contest',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Keras', 'Linux'],
