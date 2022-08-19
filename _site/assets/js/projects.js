@@ -20,22 +20,22 @@ let render_projects = (slug) => {
             categories: ['RL', 'Robotics']
         },
         {
-            image: 'assets/images/mobile-landscape.jpg',
-            link: 'https://github.com/abhn/Wall-E',
-            title: 'Wall-E',
-            demo: 'http://wall-e-jekyll.github.io/',
-            technologies: ['Semantic UI', 'Jekyll'],
-            description: "A modern Jekyll theme with grid frontpage, beautiful typography, mobile responsive, made with Semantic UI.",
-            categories: ['featured', 'webdev']
+            image: 'assets/images/2022_Spring_RLproject.png',
+            link: 'https://github.com/brianlsy98/2022_Spring_RL_project',
+            title: 'ChainMDP & Lava Project',
+            demo: false,
+            technologies: ['Python', 'Pytorch', 'Keras'],
+            description: "Reinforcement Learning Project for SNU 2022 Spring RL class. Implemented deep exploration DQN (ensemble DQN) and PPO with coarse/fine control",
+            categories: ['RL']
         },
         {
-            image: 'assets/images/collage.jpg',
-            link: 'https://github.com/abhn/Marvel',
-            title: 'Marvel',
+            image: 'assets/images/IsaacSIM.jpeg',
+            link: 'https://github.com/brianlsy98/IssacSim_tutorial',
+            title: 'Isaac Sim',
             demo: false,
-            technologies: ['Android', 'OpenCV'],
-            description: "Attendance marking tool that uses face recognition for marking attendance and firebase for tracking and analytics.",
-            categories: ['featured', 'native']
+            technologies: ['Python', 'Pytorch'],
+            description: "Implementation of Isaac Sim (NVIDIA), used as a Robotics Simulation Environment.",
+            categories: ['Robotics', 'RL']
         },
     ]
 
