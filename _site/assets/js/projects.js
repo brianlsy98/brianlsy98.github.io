@@ -11,12 +11,21 @@ let render_projects = (slug) => {
 
     let projects_obj = [
         {
+            image: 'assets/images/OfflineRL_picture.png',
+            link: 'https://github.com/brianlsy98/OfflineRL',
+            title: 'Offline RL Algorithms & Research (currently private)',
+            demo: false,
+            technologies: ['Python', 'Pytorch', 'Linux'],
+            description: "Studying Offline RL Algorithms including Model-based Methods(ex : MOReL, COMBO) and Model-free Methods(ex : CQL)",
+            categories: ['RL', 'Robotics']
+        },
+        {
             image: 'assets/images/IS_project_car.png',
             link: 'https://github.com/brianlsy98/CarRacing_DeepRL',
             title: 'Car Racing Contest',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Keras', 'Linux'],
-            description: "Car Racing Contest implementation. Updated the Agent(Car)'s policy with RL algorithm (Proximal Policy Optimization)",
+            description: "Car Racing Contest implementation (2 co-workers). Updated the Agent(Car)'s policy with RL algorithm (Proximal Policy Optimization)",
             categories: ['RL', 'Robotics']
         },
         {
@@ -36,6 +45,15 @@ let render_projects = (slug) => {
             technologies: ['Python', 'Pytorch'],
             description: "Implementation of Isaac Sim (NVIDIA), used as a Robotics Simulation Environment.",
             categories: ['Robotics', 'RL']
+        },
+        {
+            image: 'assets/images/SNUFF.png',
+            link: 'https://distrue.io/tag/chatbot/',
+            title: 'Restaurant Recommendation Chatbot near SNU',
+            demo: false,
+            technologies: ['nodeJS', 'AWS', 'mongoDB'],
+            description: "Developed a recommendation KakaoTalk chatbot with 2 co-workers(Instagram Account Owner & Backend Developer). Web-crawled(puppeteer) @snu_foodfighter instagram posts to Database(mongoDB), and connected to Kakaotalk API with AWS",
+            categories: ['etc']
         },
     ]
 
