@@ -11,9 +11,18 @@ let render_projects = (slug) => {
 
     let projects_obj = [
         {
+            image: 'assets/images/ModeShiftingADCDR.jpg',
+            link: 'https://github.com/brianlsy98/ModeShiftingADCDR',
+            title: 'All Digital CDR with locked/unlocked Mode Shifting',
+            demo: false,
+            technologies: ['XMODEL', 'Verilog', 'Virtuoso (Cadence)', 'Python', 'Linux'],
+            description: "Circuit Project for SNU 2022 Fall [Topics in Integrated Circuits (Prof. Jaeha Kim)]. Implemented All Digital CDR with changing Kp/Ki, using simple Counter",
+            categories: ['Circuit']
+        },
+        {
             image: 'assets/images/OfflineRL_picture.png',
             link: 'https://github.com/brianlsy98/OfflineRL',
-            title: 'Offline RL Algorithms & Research (currently private)',
+            title: 'Offline RL Algorithms & Research (private)',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Linux'],
             description: "Studying Offline RL Algorithms including Model-based Methods(ex : MOReL, COMBO) and Model-free Methods(ex : CQL)",
@@ -25,7 +34,7 @@ let render_projects = (slug) => {
             title: 'Car Racing Contest',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Keras', 'Linux'],
-            description: "Car Racing Contest implementation (2 co-workers). Updated the Agent(Car)'s policy with RL algorithm (Proximal Policy Optimization)",
+            description: "[Car Racing Contest (Prof. Songhwai Oh)] implementation (2 co-workers). Updated the Agent(Car)'s policy with RL algorithm (Proximal Policy Optimization)",
             categories: ['RL', 'Robotics']
         },
         {
@@ -34,7 +43,7 @@ let render_projects = (slug) => {
             title: 'ChainMDP & Lava Project',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Keras'],
-            description: "Reinforcement Learning Project for SNU 2022 Spring RL class. Implemented deep exploration DQN (ensemble DQN) and PPO with coarse/fine control",
+            description: "Reinforcement Learning Project for SNU 2022 Spring [Data Science & Reinforcement Learning (Prof. Min-hwan Oh)]. Implemented deep exploration DQN (ensemble DQN) and PPO with coarse/fine control",
             categories: ['RL']
         },
         {
@@ -72,7 +81,6 @@ let project_mapper = project => {
         <div class="wrapper">
                 
             <div class="card radius shadowDepth1">
-
                 ${project.image ? 
                     `<div class="card__image border-tlr-radius">
                         <a href="${project.link}">
@@ -80,7 +88,6 @@ let project_mapper = project => {
                         </a>
                     </div>`           
                 : ''}
-
         
                 <div class="card__content card__padding">
         
@@ -89,14 +96,12 @@ let project_mapper = project => {
         
                         <p class="paragraph-text-normal">${project.description} ${project.demo ? `<a href="${project.demo}">Demo</a>` : ''}</p>
                     </article>
-
                                 
                     <div class="card__meta">
                         ${project.technologies.map(tech =>
                             `<span class="project-technology paragraph-text-normal">${tech}</span>`
                         ).join('')}
                     </div>
-
                 </div>
             </div>
         </div>
