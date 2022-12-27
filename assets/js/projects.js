@@ -15,7 +15,7 @@ let render_projects = (slug) => {
             link: 'https://github.com/brianlsy98/ModeShiftingADCDR',
             title: 'All Digital CDR with locked/unlocked Mode Shifting',
             demo: false,
-            technologies: ['XMODEL', 'Verilog', 'Virtuoso (Cadence)', 'Python', 'Linux'],
+            technologies: ['XMODEL', 'Verilog', 'Python'],
             description: "Circuit Project for SNU 2022 Fall [Topics in Integrated Circuits (Prof. Jaeha Kim)]. Implemented All Digital CDR with changing Kp/Ki, using simple Counter",
             categories: ['Circuit']
         },
