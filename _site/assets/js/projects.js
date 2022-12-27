@@ -81,7 +81,6 @@ let project_mapper = project => {
         <div class="wrapper">
                 
             <div class="card radius shadowDepth1">
-
                 ${project.image ? 
                     `<div class="card__image border-tlr-radius">
                         <a href="${project.link}">
@@ -89,7 +88,6 @@ let project_mapper = project => {
                         </a>
                     </div>`           
                 : ''}
-
         
                 <div class="card__content card__padding">
         
@@ -98,14 +96,12 @@ let project_mapper = project => {
         
                         <p class="paragraph-text-normal">${project.description} ${project.demo ? `<a href="${project.demo}">Demo</a>` : ''}</p>
                     </article>
-
                                 
                     <div class="card__meta">
                         ${project.technologies.map(tech =>
                             `<span class="project-technology paragraph-text-normal">${tech}</span>`
                         ).join('')}
                     </div>
-
                 </div>
             </div>
         </div>
