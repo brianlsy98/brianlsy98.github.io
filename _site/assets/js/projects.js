@@ -34,7 +34,7 @@ let render_projects = (slug) => {
             title: 'Car Racing Contest',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Keras', 'Linux'],
-            description: "[Car Racing Contest (Prof. Songhwai Oh)] implementation (2 co-workers). Updated the Agent(Car)'s policy with RL algorithm (Proximal Policy Optimization)",
+            description: "[Car Racing Contest (Prof. Songhwai Oh)] implementation (2 co-workers). Updated the Agent(Car)'s policy with RL algorithm (Proximal Policy Optimization). video : https://youtu.be/EetTf6Hrh9k",
             categories: ['RL', 'Robotics']
         },
         {
