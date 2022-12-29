@@ -20,7 +20,7 @@ let render_projects = (slug) => {
             categories: ['Circuit']
         },
         {
-            image: 'assets/images/OfflineRL_picture.png',
+            image: 'assets/images/MB_OfflineRL_GAN.png',
             link: 'https://github.com/brianlsy98/MB_OfflineRL_GAN',
             title: 'Model-Based Offline Reinforcement Learning with Generative Adversarial Networks',
             demo: false,
