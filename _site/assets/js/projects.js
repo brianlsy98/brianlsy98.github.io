@@ -22,10 +22,10 @@ let render_projects = (slug) => {
         {
             image: 'assets/images/OfflineRL_picture.png',
             link: 'https://github.com/brianlsy98/MB_OfflineRL_GAN',
-            title: 'Model-Based Offline Reinforcement Learning with GAN',
+            title: 'Model-Based Offline Reinforcement Learning with Generative Adversarial Networks',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Linux'],
-            description: "Graduation Project for SNU 2022 Fall (Prof. Songhwai Oh). Implemented Model-based, Offline Reinforcement Learning Algorithm with Generative Adversarial Networks.",
+            description: "Graduation Project for SNU 2022 Fall (Prof. Songhwai Oh). Implemented Model-based, Offline RL Algorithm with Generative Adversarial Networks, utilizing Constraint as a Discriminator and Policy as a Generator.",
             categories: ['RL']
         },
         {
@@ -52,7 +52,7 @@ let render_projects = (slug) => {
             title: 'Isaac Sim',
             demo: false,
             technologies: ['Python', 'Pytorch'],
-            description: "Implementation of Isaac Sim (NVIDIA), used as a Robotics Simulation Environment.",
+            description: "Isaac Sim (NVIDIA) tutorial with Jackal(4 wheeled vehicle), which is a Robotics Simulation Environment. Isaac Sim supports Domain Randomization skills for Deep Learning trainings, and we can also integrate with Isaac SDK for cartographer/gmapping (SLAM)",
             categories: ['Robotics', 'RL']
         },
         {
