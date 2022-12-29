@@ -21,12 +21,12 @@ let render_projects = (slug) => {
         },
         {
             image: 'assets/images/OfflineRL_picture.png',
-            link: 'https://github.com/brianlsy98/OfflineRL',
-            title: 'Offline RL Algorithms & Research (private)',
+            link: 'https://github.com/brianlsy98/MB_OfflineRL_GAN',
+            title: 'Model-Based Offline Reinforcement Learning with GAN',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Linux'],
-            description: "Studying Offline RL Algorithms including Model-based Methods(ex : MOReL, COMBO) and Model-free Methods(ex : CQL)",
-            categories: ['RL', 'Robotics']
+            description: "Graduation Project for SNU 2022 Fall (Prof. Songhwai Oh). Implemented Model-based, Offline Reinforcement Learning Algorithm with Generative Adversarial Networks.",
+            categories: ['RL']
         },
         {
             image: 'assets/images/IS_project_car.png',
@@ -34,7 +34,7 @@ let render_projects = (slug) => {
             title: 'Car Racing Contest',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Keras', 'Linux'],
-            description: "[Car Racing Contest (Prof. Songhwai Oh)] implementation (2 co-workers). Updated the Agent(Car)'s policy with RL algorithm (Proximal Policy Optimization). video : https://youtu.be/EetTf6Hrh9k",
+            description: "RC Car Racing Contest Algorithm implementation (2 co-workers) for SNU 2022 Spring [Introduction to Intelligent Systems (Prof. Songhwai Oh)]. Updated the Agent(Car)'s policy with RL algorithm (Proximal Policy Optimization).",
             categories: ['RL', 'Robotics']
         },
         {
@@ -43,7 +43,7 @@ let render_projects = (slug) => {
             title: 'ChainMDP & Lava Project',
             demo: false,
             technologies: ['Python', 'Pytorch', 'Keras'],
-            description: "Reinforcement Learning Project for SNU 2022 Spring [Data Science & Reinforcement Learning (Prof. Min-hwan Oh)]. Implemented deep exploration DQN (ensemble DQN) and PPO with coarse/fine control",
+            description: "Project for SNU 2022 Spring [Data Science & Reinforcement Learning (Prof. Min-hwan Oh)]. Implemented deep exploration DQN (ensemble DQN) and PPO with coarse/fine control",
             categories: ['RL']
         },
         {
