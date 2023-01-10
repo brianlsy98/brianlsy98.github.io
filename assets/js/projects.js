@@ -56,6 +56,15 @@ let render_projects = (slug) => {
             categories: ['Robotics', 'RL']
         },
         {
+            image: 'assets/images/QEC_architecture.png',
+            link: 'https://ieeexplore.ieee.org/document/9895092',
+            title: 'Quadrature Clock Corrector Design',
+            demo: false,
+            technologies: ['hspice', 'verilog', 'virtuoso'],
+            description: "Designed a Duty Cycle Corrector and a Delay Line used for correcting the alignments of Quadrature Clocks. Digital Delay Locked Loop architecture with 28nm CMOS process is proposed in the paper, and Post-layout Simulation results are shown",
+            categories: ['Circuit']
+        },
+        {
             image: 'assets/images/SNUFF.png',
             link: 'https://distrue.io/tag/chatbot/',
             title: 'Restaurant Recommendation Chatbot near SNU',
