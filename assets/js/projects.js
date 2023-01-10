@@ -60,7 +60,7 @@ let render_projects = (slug) => {
             link: 'https://ieeexplore.ieee.org/document/9895092',
             title: 'Quadrature Clock Corrector Design',
             demo: false,
-            technologies: ['hspice', 'verilog', 'virtuoso'],
+            technologies: ['Hspice', 'Verilog', 'Virtuoso'],
             description: "Designed a Duty Cycle Corrector and a Delay Line used for correcting the alignments of Quadrature Clocks. Digital Delay Locked Loop architecture with 28nm CMOS process is proposed in the paper, and Post-layout Simulation results are shown",
             categories: ['Circuit']
         },
@@ -69,7 +69,7 @@ let render_projects = (slug) => {
             link: 'https://distrue.io/tag/chatbot/',
             title: 'Restaurant Recommendation Chatbot near SNU',
             demo: false,
-            technologies: ['nodeJS', 'AWS', 'mongoDB'],
+            technologies: ['NodeJS', 'AWS', 'MongoDB'],
             description: "Developed a recommendation KakaoTalk chatbot with 2 co-workers(Instagram Account Owner & Backend Developer). Web-crawled(puppeteer) @snu_foodfighter instagram posts to Database(mongoDB), and connected to Kakaotalk API with AWS",
             categories: ['etc']
         },
