@@ -11,8 +11,35 @@ let render_projects = (slug) => {
 
     let projects_obj = [
         {
+            image: 'assets/images/2layer_mazesolver.jpg',
+            link: 'https://github.com/brianlsy98/presentations/tree/main/2layer_mazesolver',
+            title: '2-D Metal Routing with Reinforcement Learning',
+            demo: false,
+            technologies: ['Python', 'Laygo', 'stable-baselines3'],
+            description: "Trial for training automatic metal routing agent with Reinforcement Learning. Simplified the problem as maze solving problem. Should connect this with Laygo interface (current activity)",
+            categories: ['EDA']
+        },
+        {
+            image: 'assets/images/VeriLaygo.jpg',
+            link: 'https://github.com/brianlsy98/presentations/tree/main/VeriLaygo',
+            title: 'VeriLaygo',
+            demo: false,
+            technologies: ['Verilog', 'Python', 'Laygo'],
+            description: "Trial for converting Behavior level verilog files (.v) to Layouts using LAYGO & Yosys.",
+            categories: ['EDA']
+        },
+        {
+            image: 'assets/images/NetLaygo.jpg',
+            link: 'https://github.com/brianlsy98/presentations/tree/main/NetLaygo',
+            title: 'NetLaygo',
+            demo: false,
+            technologies: ['Hspice', 'Python', 'Laygo'],
+            description: "Trial for converting Netlist files (.spice/.ckt) to Layouts using LAYGO.",
+            categories: ['EDA']
+        },
+        {
             image: 'assets/images/ModeShiftingADCDR.jpg',
-            link: 'https://github.com/brianlsy98/ModeShiftingADCDR',
+            link: 'https://github.com/brianlsy98/presentations/tree/main/ModeShiftingADCDR',
             title: 'All Digital CDR with locked/unlocked Mode Shifting',
             demo: false,
             technologies: ['XMODEL', 'Verilog', 'Python'],
