@@ -17,7 +17,7 @@ let render_projects = (slug) => {
             demo: false,
             technologies: ['Python', 'Laygo', 'stable-baselines3'],
             description: "Trial for training automatic metal routing agent with Reinforcement Learning. Simplified the problem as maze solving problem. Should connect this with Laygo interface (current activity)",
-            categories: ['EDA']
+            categories: ['EDA', 'RL']
         },
         {
             image: 'assets/images/VeriLaygo.jpg',
