@@ -11,6 +11,15 @@ let render_projects = (slug) => {
 
     let projects_obj = [
         {
+            image: 'assets/images/overall_pll.png',
+            link: 'https://github.com/brianlsy98/2023_Spring_PLL_project',
+            title: 'Injection Locking analog PLL with doubled reference frequency',
+            demo: false,
+            technologies: ['Hspice', 'Virtuoso'],
+            description: "Circuit Project for SNU 2023 Spring [Advanced Digital Integrated Circuits (Prof. Wooseok Choi)]. Implemented Injection Locking PLL and verified via hspice simulation (without layouts)",
+            categories: ['Circuit']
+        },
+        {
             image: 'assets/images/2layer_mazesolver.jpg',
             link: 'https://github.com/brianlsy98/presentations/tree/main/2layer_mazesolver',
             title: '2-D Metal Routing with Reinforcement Learning',
