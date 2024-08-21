@@ -1,13 +1,13 @@
 ---
-title: "Paper Title Number 4"
+title: "A 10-to-12-GHz Dual Loop Quadrature Clock Corrector in 28-nm CMOS Technology"
 collection: publications
 category: conferences
-permalink: /publication/2024-02-17-paper-title-number-4
-excerpt: 'This paper is about fixing template issue #693.'
-date: 2024-02-17
+permalink: /publication/2022-07-05-ITCCSCC
+excerpt: 'Keywords: Delay Locked Loops (DLL), Clock Generation.'
+date: 2022-07-05
 venue: 'GitHub Journal of Bugs'
 paperurl: 'http://academicpages.github.io/files/paper3.pdf'
-citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
+citation: 'Jung-Woo Sull, <b>Sungyoung Lee</b>, Deog-Kyoon Jeong. (2024). &quot;A 10-to-12-GHz Dual Loop Quadrature Clock Corrector in 28-nm CMOS Technology.&quot; <i>2022 37th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC)</i>.'
 ---
 
 The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.

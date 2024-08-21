@@ -2,10 +2,10 @@
 title: "Analog Transistor Placement Optimization Considering Nonlinear Spatial Variations"
 collection: publications
 category: conferences
-permalink: /publication/2024-03-25-paper-title-number-2
+permalink: /publication/2024-03-25-DATE
 excerpt: 'Keywords: Physical Design, Simulated Annealing, Placement considering Routing.'
 date: 2024-03-25
-venue: 'Journal 1'
+venue: '2024 Design, Automation & Test in Europe Conference & Exhibition (DATE)'
 slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
 paperurl: 'http://academicpages.github.io/files/paper3.pdf'
 citation: 'Supriyo Maji, <b>Sungyoung Lee</b>, David Z Pan. (2024). &quot;Analog Transistor Placement Optimization Considering Nonlinear Spatial Variations.&quot; <i>2024 Design, Automation & Test in Europe Conference & Exhibition (DATE)</i>.'
