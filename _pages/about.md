@@ -1,18 +1,20 @@
 ---
 permalink: /
 title: "About"
+excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-Hi! I am a PhD student at the University of Texas at Austin, working with Professor David Z. Pan. I finished my B.S. in August 2023 from Seoul National University (SNU) with the highest honor.
+Hi! I am a PhD student in the Department of Electrical and Computer Engineering, [University of Texas at Austin](https://www.utexas.edu/), working with Prof. [David Z. Pan](http://www.ece.utexas.edu/~dpan/).
+I received my B.S. in Electrical Engineering and Computer Science (EECS) from [Seoul National University (SNU)](https://ece.snu.ac.kr/) with highest honor, in 2023.
 
-My research focuses on applying Machine Learning (ML) to Integrated Circuit (IC) design. I am particularly interested in leveraging Graph ML and Generative Models to enhance the design automation process. In the domain of IC design, I am specifically interested in Analog, RF, and Mixed-Signal ICs.
+My current research interest lies in Machine Learning on Graphs, targeting the application to Analog and Mixed-Signal Circuits.
+* Graph Representation Learning
+* Graph Generation
 
-Hope we can design circuits by proactively harnessing the power of AI!
-
-Why ML for Hardware Design?
-======
-Solving complex problems in life has always brought me a great sense of accomplishment. Therefore, I aspire to pursue a career that allows me to become an exceptional problem solver (engineer). “Machine Learning (ML) for Hardware Design” presents itself as one of the most challenging and intriguing problems, which is why I am dedicated to this field. I envision a future where hardware design is no longer a bottleneck for technological innovation.
+<!-- <div align=center>
+<img src="../images/justforfun_2.gif" height="500" width="500" />
+</div> -->
