@@ -1,0 +1,27 @@
+<div class="my-3 bg-white shadow-sm rounded-sm">
+    <h6 class="p-3 mb-0 border-bottom border-gray"><i class="fas fa-rss"></i> Video</h6>
+    <div class="px-3 pb-1 video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9-EQmDjRLHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
+<style>
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.video-container iframe {
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    .video-container iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+</style>

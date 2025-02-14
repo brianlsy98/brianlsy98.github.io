@@ -1,0 +1,57 @@
+primary_name: "Sungyoung Lee"
+secondary_name: ""
+navbar_name: ""
+
+positions:
+- logo: /assets/images/badges/utaustin.png  # Logo is optional
+  name: The University of Texas at Austin
+# - name: Position 2 without logo
+
+
+email: "sylee@utexas.edu"
+cv_link: /assets/files/resume2025.pdf
+gscholar: 6A2tjLEAAAAJ
+github: brianlsy98
+# twitter: your_twitter_id
+# wechat_qrcode: /assets/images/etc/wechat.jpg
+# wechat_prompt: >-
+#   Please tell me your <strong>name</strong> and <strong>affiliation</strong> (current or past) when adding my wechat. Thanks!
+linkedin: brianlsy
+orcid: 0009-0005-5966-1019
+
+short_bio: >-
+  <p>
+    Hi all! I am a Ph.D. student in Electrical Computer Engineering at
+    <a href="https://www.utexas.edu/">the University of Texas at Austin</a>,
+    working with Prof. <a href="http://www.ece.utexas.edu/~dpan/">David Z. Pan</a>.
+    I received my B.S. degree in Electrical Engineering and Computer Science (EECS)
+    from <a href="https://en.snu.ac.kr/">Seoul National University</a> with highest honor, in 2023.
+  </p>
+
+portrait_url: /assets/images/photos/profile.jpg
+# portrait_caption: >-
+#   Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
+
+education:
+- name: The University of Texas at Austin
+  logo: /assets/images/badges/utaustin.png
+  position: Ph.D. in Electrical and Computer Engineering (ECE)
+  date: Sep. 2024 -
+
+- name: Seoul National University
+  logo: /assets/images/badges/snu.png
+  position: B.S. in Electrical Engineering and Computer Science (EECS)
+  date: Mar. 2017 - Oct. 2023
+
+# experience:
+# - name: The University of Texas at Austin
+#   logo: /assets/images/badges/utaustin.png
+#   position: Visiting Research Student
+#   date: Feb. 2024 - Jul. 2024
+
+
+awards:
+- name: Engineering Fellowship, UT Austin
+  date: Sep. 2024
+- name: Golden Tiger Award, USAG Humphreys
+  date: Dec. 2019
