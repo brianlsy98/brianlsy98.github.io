@@ -25,12 +25,14 @@
         {%- assign name = key -%}
     {%- endif -%}
 
-    {%- if info['bold'] == true -%}
-        {%- assign display_name = name | append: mark | prepend: "<strong>" | append: "</strong>" -%}
+    {%- if name == "Sungyoung Lee" -%}  <!-- Check if the author is you -->
+        {%- assign display_name = "<strong>" | append: name | append: mark | append: "</strong>" -%}
+    {%- elsif info['bold'] == true -%}
+        {%- assign display_name = "<strong>" | append: name | append: mark | append: "</strong>" -%}
     {%- else -%}
         {%- assign display_name = name | append: mark -%}
     {%- endif -%}
-    
+
     {%- if info['url'] -%}
         <a class="text-body" target="_blank" href="{{ info['url'] }}">{{ display_name }}</a>{%- if forloop.index < authors.size -%}, {% endif -%}
     {%- else -%}
