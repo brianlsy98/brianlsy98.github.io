@@ -9,7 +9,7 @@ positions:
 
 
 email: "sylee@utexas.edu"
-cv_link: /assets/files/resume2025.pdf
+cv_link: /assets/files/Resume.pdf
 gscholar: 6A2tjLEAAAAJ
 github: brianlsy98
 # twitter: your_twitter_id
@@ -38,7 +38,12 @@ education:
 - name: The University of Texas at Austin
   logo: /assets/images/badges/utaustin.png
   position: Ph.D. in Computer Science (CS)
-  date: Sep. 2024 - Current
+  date: Sep. 2025 - Current
+
+- name: The University of Texas at Austin
+  logo: /assets/images/badges/utaustin.png
+  position: Ph.D. in Electrical and Computer Engineering (ECE)
+  date: Sep. 2024 - Aug. 2025
 
 - name: Seoul National University
   logo: /assets/images/badges/snu.png
@@ -53,6 +58,8 @@ education:
 
 
 awards:
+- name: DAC Young Fellowship, 62nd Design Automation Conference (DAC)
+  date: Jun. 2025
 - name: UT Excellence Engineering Fellowship, UT Austin
   date: Sep. 2024
 - name: Golden Tiger Award, USAG Humphreys
