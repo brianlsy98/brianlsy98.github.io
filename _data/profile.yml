@@ -21,11 +21,13 @@ orcid: 0009-0005-5966-1019
 
 short_bio: >-
   <p>
-    Hi all! I am a Ph.D. student in Electrical Computer Engineering (ECE) at the
+    Hi all! I am a Ph.D. student in Computer Science (CS) at the
     <a href="https://www.utexas.edu/">University of Texas at Austin</a>,
-    working with Prof. <a href="http://www.ece.utexas.edu/~dpan/">David Z. Pan</a>.
+    working with Prof. <a href="https://oden.utexas.edu/people/directory/keshav-pingali/">Keshav Pingali</a>.
+    I also worked closely with Prof. <a href="https://users.ece.utexas.edu/~dpan/">David Z. Pan</a> and <a href="https://ieeexplore.ieee.org/author/37274430800">Deog-Kyoon Jeong</a>.
     I received my B.S. degree in Electrical Engineering and Computer Science (EECS)
     from <a href="https://en.snu.ac.kr/">Seoul National University</a> with highest honor, in 2023.
+    My research interest is in efficient and scalable machine learning, currently focusing on graph and deep reinforcement learning (RL).
   </p>
 
 portrait_url: /assets/images/photos/profile.jpg
@@ -35,7 +37,7 @@ portrait_url: /assets/images/photos/profile.jpg
 education:
 - name: The University of Texas at Austin
   logo: /assets/images/badges/utaustin.png
-  position: Ph.D. in Electrical and Computer Engineering (ECE)
+  position: Ph.D. in Computer Science (CS)
   date: Sep. 2024 - Current
 
 - name: Seoul National University
@@ -51,7 +53,7 @@ education:
 
 
 awards:
-- name: Engineering Fellowship, UT Austin
+- name: UT Excellence Engineering Fellowship, UT Austin
   date: Sep. 2024
 - name: Golden Tiger Award, USAG Humphreys
   date: Dec. 2019
