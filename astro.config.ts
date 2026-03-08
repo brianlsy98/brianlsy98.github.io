@@ -11,9 +11,11 @@ import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeKatex from "rehype-katex";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 // Remark plugins
 import remarkDirective from "remark-directive"; /* Handle ::: directives as nodes */
+import remarkMath from "remark-math";
 import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
 import { remarkGithubCard } from "./src/plugins/remark-github-card";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
@@ -34,10 +36,10 @@ export default defineConfig({
 		webmanifest({
 			// See: https://github.com/alextim/astro-lib/blob/main/packages/astro-webmanifest/README.md
 			name: siteConfig.title,
-			short_name: "Astro_Cactus", // optional
+			short_name: "LSY_Blog", // optional
 			description: siteConfig.description,
 			lang: siteConfig.lang,
-			icon: "public/icon.svg", // the source for generating favicon & icons
+			icon: "public/lsy-icon.svg", // the source for generating favicon & icons
 			icons: [
 				{
 					src: "icons/apple-touch-icon.png", // used in src/components/BaseHead.astro L:26
@@ -69,6 +71,7 @@ export default defineConfig({
 	markdown: {
 		rehypePlugins: [
 			rehypeHeadingIds,
+			rehypeKatex,
 			[rehypeAutolinkHeadings, { behavior: "wrap", properties: { className: ["not-prose"] } }],
 			[
 				rehypeExternalLinks,
@@ -79,7 +82,13 @@ export default defineConfig({
 			],
 			rehypeUnwrapImages,
 		],
-		remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
+		remarkPlugins: [
+			remarkMath,
+			remarkReadingTime,
+			remarkDirective,
+			remarkGithubCard,
+			remarkAdmonitions,
+		],
 		remarkRehype: {
 			footnoteLabelProperties: {
 				className: [""],

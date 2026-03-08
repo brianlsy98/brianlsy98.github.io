@@ -31,8 +31,8 @@ interface Props {
 const { page, uniqueTags, pinnedPosts } = Astro.props;
 
 const meta = {
-	description: "Read my collection of posts and the things that interest me",
-	title: "Posts",
+	description: "Research project intro pages and technical blog entries by LSY Blog",
+	title: "Blog",
 };
 
 const paginationProps = {
@@ -56,12 +56,16 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 
 <PageLayout meta={meta}>
 	<div class="mb-12 flex items-center gap-3">
-		<h1 class="title">Posts</h1>
+		<h1 class="title">Blog</h1>
 		<a class="text-accent" href="/rss.xml" target="_blank">
 			<span class="sr-only">RSS feed</span>
 			<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
 		</a>
 	</div>
+	<p class="mb-10 max-w-3xl text-sm opacity-85">
+		Each research project should have one dedicated intro page here. Use that page as the canonical
+		entry point, and link follow-up updates to it.
+	</p>
 	<div class="grid sm:grid-cols-[3fr_1fr] sm:gap-x-8 sm:gap-y-16">
 		<div>
 			{

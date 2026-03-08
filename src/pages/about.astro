@@ -2,35 +2,67 @@
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "I'm a starter theme for Astro.build",
+	description: "About LSY Blog",
 	title: "About",
 };
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-12">About</h1>
-	<div class="prose prose-sm prose-cactus max-w-none">
+	<h1 class="title mb-6">About</h1>
+	<div class="about-copy prose prose-sm prose-cactus max-w-none">
 		<p>
-			Hi, I’m a starter Astro. I’m particularly great for getting you started with your own blogging
-			website.
+			My name is Sung-Young (성영) Lee (이). "Sung" (晟) means bright, and "Young" (榮) means glory.
+			"Lee" (李) is my family name.
 		</p>
-		<p>Here are my some of my awesome built in features:</p>
+		<h2>Past</h2>
+		<p><strong class="text-accent">Military Service at the United States Army Garrison (USAG) Humphreys.</strong></p>
+		<p>Sergeant, 18 months service, 557th Military Police Company.</p>
+		<p><strong class="text-accent">B.S. in EECS from Seoul National University (highest honors).</strong></p>
+		<p>Research on mixed-signal ICs (e.g., PLL and ADC) (Advisor: Prof. Deog-Kyoon Jeong).</p>
+		<p><strong class="text-accent">Ph.D. student at UT Austin (Advisor: Prof. David Z. Pan).</strong></p>
+		<p>Research on transistor-level Electronics Design Automation (EDA).</p>
+		<h2>Current</h2>
+		<p><strong class="text-accent">Ph.D. student at UT Austin (Advisor: Prof. Keshav K. Pingali).</strong></p>
+		<p>Research on Systems and Graph Analytics.</p>
+		<h2 id="original-intro">Research Focus</h2>
+		<p><strong class="text-accent">Efficient & Expressive ML</strong></p>
+		<p>Specific short term interests are as follows:</p>
 		<ul class="list-inside list-disc" role="list">
-			<li>I'm ultra fast as I'm a static site</li>
-			<li>I'm fully responsive</li>
-			<li>I come with a light and dark mode</li>
-			<li>I'm easy to customise and add additional content</li>
-			<li>I have Tailwind CSS styling</li>
-			<li>Shiki code syntax highlighting</li>
-			<li>Satori for auto generating OG images for blog posts</li>
+			<li>
+				Algorithm level
+				<br />
+				(1) Few-step generative models (e.g., one-step generation or distillation)
+				<br />
+				(2) Sample-efficient reinforcement learning (e.g., off-policy and offline)
+			</li>
+			<li>
+				System level
+				<br />
+				(1) CUDA kernel optimization
+				<br />
+				(2) Inter-GPU communication (e.g., distributed inference serving)
+			</li>
 		</ul>
-		<p>
-			Clone or fork my <a
-				class="cactus-link inline-block"
-				href="https://github.com/chrismwilliams/astro-cactus"
-				rel="noreferrer"
-				target="_blank">repo</a
-			> if you like me!
-		</p>
+		<h2>Honors and Awards</h2>
+		<ul class="list-inside list-disc" role="list">
+			<li>
+				DAC Young Fellowship, 62nd Design Automation Conference (DAC)
+				(Jun. 2025)
+			</li>
+			<li>
+				UT Excellence Engineering Fellowship, UT Austin
+				(Sep. 2024)
+			</li>
+			<li>
+				Golden Tiger Award, USAG Humphreys
+				(Dec. 2019)
+			</li>
+		</ul>
 	</div>
 </PageLayout>
+
+<style>
+	.about-copy p + p {
+		margin-top: -1rem;
+	}
+</style>

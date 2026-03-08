@@ -1,0 +1,8 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" rx="48" fill="#E3F5EC"/>
+  <circle cx="320" cy="246" r="120" fill="#2BBC8A"/>
+  <path d="M132 560C149 444 226 386 320 386C414 386 491 444 508 560H132Z" fill="#2BBC8A"/>
+  <text x="320" y="602" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="30" fill="#0F172A">
+    Replace with your photo
+  </text>
+</svg>

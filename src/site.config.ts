@@ -2,9 +2,9 @@ import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 import type { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
-	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-	author: "Chris Williams",
-	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
+	// Used as both a meta property & the generated satori png
+	author: "LSY Blog",
+	// Date.prototype.toLocaleDateString() parameters
 	date: {
 		locale: "en-GB",
 		options: {
@@ -13,21 +13,20 @@ export const siteConfig: SiteConfig = {
 			year: "numeric",
 		},
 	},
-	// Used as the default description meta property and webmanifest description
-	description: "An opinionated starter theme for Astro",
-	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
+	// Used as the default description meta property
+	description: "Personal portfolio and research blog of LSY Blog",
+	// HTML lang property
 	lang: "en-GB",
-	// Meta property, found in src/components/BaseHead.astro L:42
+	// Meta property
 	ogLocale: "en_GB",
-	/* 
-		- Used to construct the meta title property found in src/components/BaseHead.astro L:11 
-		- The webmanifest name found in astro.config.ts L:42
-		- The link value found in src/components/layout/Header.astro L:35
-		- In the footer found in src/components/layout/Footer.astro L:12
+	/* - Used to construct the meta title property
+		- The webmanifest name
+		- The link value in the Header
+		- In the footer
 	*/
-	title: "Astro Cactus",
-	// ! Please remember to replace the following site property with your own domain, used in astro.config.ts
-	url: "https://astro-cactus.chriswilliams.dev/",
+	title: "LSY Blog",
+	// ! IMPORTANT: Set this to your GitHub Pages URL
+	url: "https://brianlsy98.github.io/",
 };
 
 // Used to generate links in both the Header & Footer.

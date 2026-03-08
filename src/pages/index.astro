@@ -1,80 +1,169 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import PostPreview from "@/components/blog/PostPreview.astro";
-import Note from "@/components/note/Note.astro";
+import { type CollectionEntry } from "astro:content";
 import SocialList from "@/components/SocialList.astro";
 import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 
 // Posts
-const MAX_POSTS = 10;
+const MAX_POSTS = 5;
 const allPosts = await getAllPosts();
 const allPostsByDate = allPosts.sort(collectionDateSort) as CollectionEntry<"post">[];
 const latestPosts = allPostsByDate.slice(0, MAX_POSTS);
 
-// Pinned Posts, set to a max of 3;
-const MAX_PINNED_POSTS = 3;
-const pinnedPosts = allPostsByDate.filter((p) => p.data.pinned).slice(0, MAX_PINNED_POSTS);
-
-// Notes
-const MAX_NOTES = 5;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes
-	.sort(collectionDateSort)
-	.slice(0, MAX_NOTES) as CollectionEntry<"note">[];
+const researchPapers = [
+	{
+		title: "AnalogCoder-Pro: Unifying Analog Circuit Generation and Optimization via Multi-modal LLMs",
+		authors: "Yao Lai, Souradip Poddar, Sungyoung Lee, Guojin Chen, Mengkang Hu, Bei Yu, Ping Luo, David Z. Pan",
+		venue: "IEEE Transactions on Computer-Aided Design of Integrated Circuits & Systems (TCAD), 2026",
+		summary:
+			"TL;DR: First training-free multimodal LLM framework for end-to-end analog design, unifying topology generation and sizing with waveform/log feedback.",
+		figure: "/research/analogcoder-pro.png",
+		paperUrl: "https://arxiv.org/abs/2508.02518",
+		codeUrl: "https://github.com/laiyao1/AnalogCoderPro",
+	},
+	{
+		title: "PPAAS: PVT and Pareto Aware Analog Sizing via Goal-conditioned Reinforcement Learning",
+		authors: "Seunggeun Kim, Ziyi Wang, Sungyoung Lee, Youngmin Oh, Hanqing Zhu, Doyun Kim, David Z. Pan",
+		venue: "2025 IEEE/ACM International Conference on Computer Aided Design (ICCAD), 2025",
+		summary:
+			"TL;DR: Performs Pareto-aware analog sizing with goal-conditioned reinforcement learning for robust trade-offs across process and operating conditions.",
+		figure: "/research/ppass.png",
+		paperUrl: "https://arxiv.org/abs/2507.17003",
+		codeUrl: "https://github.com/SeunggeunKimkr/PPAAS",
+	},
+	{
+		title: "DICE: Device-level Integrated Circuits Encoder with Graph Contrastive Pretraining",
+		authors: "Sungyoung Lee, Ziyi Wang, Seunggeun Kim, Taekyun Lee, Yao Lai, David Z. Pan",
+		venue: "arXiv preprint, 2025",
+		summary:
+			"TL;DR: First self-supervised pretrained GNN for device-level circuits; simulation-free graph contrastive pretraining boosts performance on three downstream tasks.",
+		figure: "/research/dice.png",
+		paperUrl: "https://arxiv.org/abs/2502.08949",
+		codeUrl: "https://github.com/brianlsy98/DICE",
+	},
+	{
+		title: "AnalogCoder: Analog Circuit Design via Training-Free Code Generation",
+		authors: "Yao Lai, Sungyoung Lee, Guojin Chen, Souradip Poddar, Mengkang Hu, David Z. Pan, Ping Luo",
+		venue: "AAAI Conference on Artificial Intelligence (AAAI) 2025 (Oral)",
+		summary:
+			"TL;DR: Training-free LLM agent for analog circuit design using feedback prompts plus a circuit library; high success rate and 25 designed circuits, outperforming GPT-4o.",
+		figure: "/research/analogcoder.jpg",
+		paperUrl: "https://arxiv.org/abs/2405.14918",
+		codeUrl: "https://github.com/laiyao1/AnalogCoder",
+	},
+	{
+		title: "Analog Transistor Placement Optimization Considering Nonlinear Spatial Variations",
+		authors: "Supriyo Maji, Sungyoung Lee, David Z. Pan",
+		venue: "Design, Automation & Test in Europe Conference & Exhibition (DATE) 2024",
+		summary:
+			"TL;DR: Simulated annealing transistor placement handles nonlinear spatial variation in analog circuits, beats prior methods, satisfies layout constraints, and improves optimization control.",
+		figure: "/research/date2024.png",
+		paperUrl: "https://ieeexplore.ieee.org/abstract/document/10546584",
+	},
+	{
+		title: "A 10-to-12-GHz Dual Loop Quadrature Clock Corrector in 28-nm CMOS Technology",
+		authors: "Jung-Woo Sull, Sungyoung Lee, Deog-Kyoon Jeong",
+		venue: "37th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC) 2022",
+		summary:
+			"TL;DR: Dual-loop quadrature clock corrector in Samsung 28-nm CMOS.",
+		figure: "/research/itccscc2022.png",
+		paperUrl: "https://ieeexplore.ieee.org/abstract/document/9895092",
+	},
+];
 ---
 
 <PageLayout meta={{ title: "Home" }}>
-	<section>
-		<h1 class="title mb-12">Hello World!</h1>
-		<p class="mb-4">
-			Hi, I’m a theme for Astro, a simple starter that you can use to create your website or blog.
-			If you want to know more about how you can customise me, add more posts, and make it your own,
-			click on the GitHub icon link below and it will take you to my repo.
-		</p>
-		<SocialList />
+	<section class="grid items-start gap-8 sm:grid-cols-[180px_1fr]">
+		<div>
+			<img
+				alt="Portrait of LSY Blog"
+				class="h-44 w-44 rounded-2xl border border-zinc-300 object-cover shadow-sm dark:border-zinc-700"
+				height="176"
+				src="/sungyoung.jpg"
+				width="176"
+			/>
+			<div class="mt-4">
+				<SocialList />
+			</div>
+		</div>
+		<div>
+			<h1 class="title mb-4"><span class="text-accent">Sungyoung</span> (Brian) Lee</h1>
+			<p class="mb-2">
+				Hi everyone, welcome, and thanks for visiting.
+			</p>
+			<p class="mb-2">
+				<strong class="text-accent">I work on improving the efficiency of expressive machine learning (ML) algorithms.</strong>
+				Most major breakthroughs in ML come from expressive distributional modeling.
+				Still, we should avoid using a nuclear bomb to catch a fly. I am passionate about achieving
+				maximum capability with minimal computation, like a true martial arts master.
+			</p>
+			<p class="mb-2">
+				Please refer to the <a class="cactus-link" href="/about/">About</a> section for more details.
+			</p>
+		</div>
 	</section>
-	{
-		pinnedPosts.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title mb-6 text-xl">Pinned Posts</h2>
-				<ul class="space-y-4" role="list">
-					{pinnedPosts.map((p) => (
-						<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
-							<PostPreview post={p} />
-						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
 	<section class="mt-16">
-		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
-		<ul class="space-y-4" role="list">
+		<h2 class="title text-accent mb-6 text-xl">
+			<a href="/posts/">Blog</a>
+		</h2>
+		<ul class="grid gap-4 sm:grid-cols-2" role="list">
 			{
-				latestPosts.map((p) => (
-					<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
-						<PostPreview post={p} />
+				latestPosts.map((post) => (
+					<li class="rounded-xl border border-zinc-300 p-4 dark:border-zinc-700">
+						<h3 class="font-semibold">
+							<a class="cactus-link" href={`/posts/${post.id}/`}>
+								{post.data.title}
+							</a>
+						</h3>
+						<p class="mt-2 text-sm opacity-80">{post.data.description}</p>
 					</li>
 				))
 			}
 		</ul>
 	</section>
-	{
-		latestNotes.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title text-accent mb-6 text-xl">
-					<a href="/notes/">Notes</a>
-				</h2>
-				<ul class="space-y-6" role="list">
-					{latestNotes.map((note) => (
-						<li>
-							<Note note={note} as="h3" isPreview />
-						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
+	<section class="mt-16">
+		<h2 class="title text-accent mb-6 text-xl">Research Overview</h2>
+		<ul class="space-y-6" role="list">
+			{
+				researchPapers.map((paper) => (
+					<li class="rounded-xl border border-zinc-300 p-4 dark:border-zinc-700">
+						<div class="grid items-start gap-4 sm:grid-cols-[220px_1fr]">
+							<img
+								alt={`Figure for ${paper.title}`}
+								class="aspect-square w-full rounded-lg border border-zinc-200 bg-white object-contain dark:border-zinc-700 dark:bg-zinc-900"
+								height="220"
+								src={paper.figure}
+								width="220"
+							/>
+							<div>
+								<h3 class="text-base font-semibold leading-snug">{paper.title}</h3>
+								<p
+									class="mt-1 text-sm"
+									set:html={paper.authors.replaceAll(
+										"Sungyoung Lee",
+										'<span class="text-accent font-semibold underline">Sungyoung Lee</span>',
+									)}
+								/>
+								<p class="mt-1 text-sm font-medium">{paper.venue}</p>
+								<p class="mt-3 text-sm opacity-85">{paper.summary}</p>
+								<div class="mt-3 flex flex-wrap gap-3 text-sm">
+									<a class="cactus-link" href={paper.paperUrl} target="_blank">
+										[Paper]
+									</a>
+									{
+										paper.codeUrl && (
+											<a class="cactus-link" href={paper.codeUrl} target="_blank">
+												[Code]
+											</a>
+										)
+									}
+								</div>
+							</div>
+						</div>
+					</li>
+				))
+			}
+		</ul>
+	</section>
 </PageLayout>
