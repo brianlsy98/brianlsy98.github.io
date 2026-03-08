@@ -1,6 +1,6 @@
 ---
-title: "Pretraining for Integrated Circuits?"
-description: "On the importance of unsupervised pretraining at the transistor-level."
+title: "Efficient Yet General Pretrained Models for Integrated Circuits"
+description: "How transistor-level graph contrastive pretraining improves generalization for ICs."
 publishDate: "2026-03-08"
 tags: ["GraphML", "Pretraining"]
 showOnSite: true
@@ -14,7 +14,7 @@ A standard pipeline for building production-ready LLMs has two stages: (1) pretr
 
 Because of this, pretrained models should be as general as possible so they can transfer well across many tasks. In contrast, supervised training tends to specialize a model for particular objectives. For example, memorizing every word in the Oxford dictionary does not automatically make someone a good writer. For this reason, prior work has relied heavily on unsupervised learning so models can capture broad statistical patterns in text. This helps pretrained LLMs generalize across diverse language tasks.
 
-## LLMs for Circuits, is it efficient?
+## LLMs for Circuits, is it Efficient?
 
 TODO
 
