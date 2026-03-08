@@ -8,11 +8,11 @@ showOnSite: true
 
 ## Pretrained LLMs
 
-Large Language Models (LLM) have clearly shook our world at an unpresidented scale. They are universal solvers, and as of 2026, ChatGPT, Gemini, and Claude can write codes, solve math problems, and find documents much better than most people.
+Large Language Models (LLMs) have clearly reshaped our world at an unprecedented scale. They are increasingly general-purpose problem solvers, and as of 2026, systems like ChatGPT, Gemini, and Claude can write code, solve math problems, and retrieve information better than most people.
 
-A standard way to prepare these production-ready LLMs is to (1) pretrain and (2) fine-tune on specific tasks. You can think of pretraining as teaching basic grammar rules, and fine-tuning as training hard to solve hard math problems.
+A standard pipeline for building production-ready LLMs has two stages: (1) pretraining and (2) fine-tuning for specific tasks. You can think of pretraining as learning the basic rules of language, and fine-tuning as targeted practice for specialized problems.
 
-Therefore, pretrained models should be "general" enough, meaning that they should be ready to cover as much tasks as possible. However, supervised training makes the model specific to certain tasks. For example, only memorizing all words in the oxford dictionary does not make you a good writer. Therefore, prior work has used "unsupervised" methods and made the model learn the underlying patterns of text combinations. In this way, the pretrained LLMs become general to all text-related tasks.
+Because of this, pretrained models should be as general as possible so they can transfer well across many tasks. In contrast, supervised training tends to specialize a model for particular objectives. For example, memorizing every word in the Oxford dictionary does not automatically make someone a good writer. For this reason, prior work has relied heavily on unsupervised learning so models can capture broad statistical patterns in text. This helps pretrained LLMs generalize across diverse language tasks.
 
 ## LLMs for Circuits, is it efficient?
 
