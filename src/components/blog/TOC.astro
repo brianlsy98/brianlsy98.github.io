@@ -12,11 +12,52 @@ const { headings } = Astro.props;
 const toc = generateToc(headings);
 ---
 
-<details open class="lg:sticky lg:top-12 lg:order-2 lg:-me-32 lg:basis-64">
+<details open class="toc-docked lg:w-64">
 	<summary class="title hover:marker:text-accent cursor-pointer text-lg">Table of Contents</summary>
-	<nav class="ms-4 lg:w-full">
+	<nav class="ms-4 lg:ms-0 lg:w-full">
 		<ol class="mt-4">
 			{toc.map((heading) => <TOCHeading heading={heading} />)}
 		</ol>
 	</nav>
 </details>
+
+<script>
+	const tocEl = document.querySelector("details.toc-docked") as HTMLDetailsElement | null;
+
+	function syncTocPosition() {
+		if (!tocEl) return;
+		if (window.innerWidth < 1024) {
+			tocEl.style.removeProperty("top");
+			return;
+		}
+
+		const titleEl = document.querySelector("#blog-hero .title, #blog-hero h1") as HTMLElement | null;
+		const themeToggleEl = document.querySelector(
+			"theme-toggle.theme-toggle-docked",
+		) as HTMLElement | null;
+
+		const buttonTop = Math.round(themeToggleEl?.getBoundingClientRect().top ?? 73);
+		const titleTop = Math.round(titleEl?.getBoundingClientRect().top ?? buttonTop);
+
+		// Start at the title line, then clamp to the theme-toggle line while scrolling.
+		tocEl.style.top = `${Math.max(buttonTop, titleTop)}px`;
+	}
+
+	window.addEventListener("load", syncTocPosition);
+	window.addEventListener("resize", syncTocPosition);
+	window.addEventListener("scroll", syncTocPosition, { passive: true });
+	syncTocPosition();
+</script>
+
+<style>
+	@media (min-width: 1024px) {
+		:global(details.toc-docked) {
+			position: fixed;
+			top: 4.55rem;
+			left: max(0.75rem, calc((100vw - 48rem) / 2 - 15rem));
+			max-height: 100vh;
+			overflow: auto;
+			z-index: 40;
+		}
+	}
+</style>
