@@ -71,10 +71,52 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 		});
 	}
 
+	function syncPostSvgTheme() {
+		const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+		const svgImages = document.querySelectorAll<HTMLImageElement>(
+			".prose img[src$='.svg'], .prose img[data-svg-base-src]",
+		);
+
+		svgImages.forEach((img) => {
+			const baseSrc = img.dataset.svgBaseSrc ?? img.getAttribute("src");
+
+			if (!baseSrc) {
+				return;
+			}
+
+			img.dataset.svgBaseSrc = baseSrc;
+
+			const svgUrl = new URL(baseSrc, window.location.href);
+			svgUrl.searchParams.set("theme", theme);
+			img.src = `${svgUrl.pathname}${svgUrl.search}${svgUrl.hash}`;
+		});
+	}
+
 	scrollBtn.addEventListener("click", () => {
 		document.documentElement.scrollTo({ behavior: "smooth", top: 0 });
 	});
 
 	const observer = new IntersectionObserver(callback);
 	observer.observe(targetHeader);
+
+	syncPostSvgTheme();
+
+	const windowWithSvgHandlers = window as Window & {
+		__postSvgAfterSwapHandler__?: () => void;
+		__postSvgThemeHandler__?: () => void;
+	};
+
+	if (windowWithSvgHandlers.__postSvgThemeHandler__) {
+		document.removeEventListener("theme-change", windowWithSvgHandlers.__postSvgThemeHandler__);
+	}
+
+	if (windowWithSvgHandlers.__postSvgAfterSwapHandler__) {
+		document.removeEventListener("astro:after-swap", windowWithSvgHandlers.__postSvgAfterSwapHandler__);
+	}
+
+	windowWithSvgHandlers.__postSvgThemeHandler__ = () => syncPostSvgTheme();
+	windowWithSvgHandlers.__postSvgAfterSwapHandler__ = () => syncPostSvgTheme();
+
+	document.addEventListener("theme-change", windowWithSvgHandlers.__postSvgThemeHandler__);
+	document.addEventListener("astro:after-swap", windowWithSvgHandlers.__postSvgAfterSwapHandler__);
 </script>

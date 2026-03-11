@@ -115,30 +115,73 @@ Based on these insights, we propose:
   <strong>Flow Anchored Noise-conditioned Q-Learning (FAN)</strong>
 </blockquote>
 
-![FAN](./figures/M.svg)
+![FAN](./figures/Method.svg)
 
 We use ***"Flow Anchoring"*** for expressive policy constraints, and apply ***"Noise-conditioned Q-Learning"*** for expressive values.
 
 ### Constraint using Single Flow Iteration
 
 $$\textcolor{green}{\texttt{(1) Flow Anchoring.}}$$
+For the behavior regularization part, we modify the prior objectives as follows:
 
-TODO
+<div align="left">
+
+$$\texttt{(FQL) : }\mathbb{E}_{\substack{s\sim\mathcal{D} \\ \epsilon\sim\mathcal{N}(0,I_d)}} \left[ \lVert a_\omega - a_\theta \rVert_2^2 \right] \\ \texttt{(FAN) : }\mathbb{E}_{\substack{s\sim\mathcal{D} \\ \epsilon\sim\mathcal{N}(0,I_d) \\ t\sim\text{Unif}([0,1])}} \left[ \lVert (\pi_\omega(s, \epsilon) - \epsilon) - v_\theta(s, t, a_{t,\omega}) \rVert_2^2 \right]$$
+
+</div>
+
+Here is the variable breakdown:
+- $s \sim \mathcal{D}$ : Offline dataset state
+- $\epsilon \sim \mathcal{N}(0,I_d)$ : Prior noise vector
+- $t \sim \text{Unif}([0,1])$ : Random time step
+- $a_\omega := \pi_\omega(s, \epsilon)$ : Learning policy action
+- $a_\theta := \epsilon + \int_0^1 v_\theta(s, \tau, a_\tau) d\tau$ : Behavior flow action ***(Iterative ODE)***
+- $a_{t,\omega} := (1 - t)\epsilon + t$
+- $a_\omega$ : Interpolated point at time $t$
+- $\pi_\omega(s, \epsilon) - \epsilon$ : Policy direction
+- $v_\theta(s, t, a_{t,\omega})$ : Behavior flow velocity field ***(Single-step)***
+
+Our work only requires a single flow step, and is guaranteed to minimize the Wasserstein-2 distance between $$\pi_\omega$$ and $$\pi_\beta$$!
 
 ### Distributional Critic with Push-Forwards
 
 $$\textcolor{green}{\texttt{(2) Noise-conditioned Q-Learning.}}$$
+For the distributional value estimates, we propose the following novel Bellman operator:
 
-TODO
+<div align="center">
+
+$$(\mathcal{T}^{\pi}_{n} Q)(s, a, \epsilon') :\overset{d}{=} r + \gamma \operatorname{ess \sup}_{\epsilon \sim \mathcal{N}(0, I_d)} Q(s', \pi(s', \epsilon'), \epsilon)$$
+
+</div>
+
+Don't get afraid with the $\operatorname{ess \sup}$! It stands for "essential supremum", which is just taking the maximum value, ignoring rare, zero-probability edge cases. With the simple environment example above, the critic values are calculated as follows:
+
+![Observation for the Noise-conditioned Q-Learning](./figures/NoiseConditionedQ.svg)
+
+Understand this as the distributional extension of Q-Learning!! i.e., $$(\mathcal{T}^\pi Q)(s, a) = r + \gamma \max_{a'} Q(s', a')$$. In Q-Learning, the maximum operation is taken over the "next" action, but we are doing it for $$\epsilon$$, which is highly related to the "next-next" action. In our case, the next action is tied to our value function input $$\epsilon'$$.
 
 ## Result
 
-We tested FAN on numerous [D4RL](https://sites.google.com/view/d4rl-anonymous/) and [OGBench](https://seohong.me/projects/ogbench/) tasks. Please check out our paper FAN for more details.
+We tested FAN on numerous [D4RL](https://sites.google.com/view/d4rl-anonymous/) and [OGBench](https://seohong.me/projects/ogbench/) tasks. Please check out our paper, FAN, for more details.
 
 ![FLOPs and Success Rates](./figures/FLOPvsPerf.svg)
 
-To summarize, ***FAN achieves the best success rates on average with the highest computational efficiency***. Specifically, the computational efficiency is similar to that of highly efficient non-distributional offline RL algorithms (e.g., ReBRAC, FQL), while outperforming relatively inefficient distributional approaches (e.g, CODAC, Value Flows). 
+To summarize, ***FAN achieves the best success rates on average with the highest computational efficiency***. Specifically, its computational efficiency is similar to that of highly efficient non-distributional offline RL algorithms (e.g., ReBRAC, FQL), while outperforming relatively inefficient distributional approaches (e.g., CODAC, Value Flows). 
 
-## Takeaway
+## Takeaways
 
-TODO
+Just remember these about FAN:
+
+- $$\textcolor{green}{\texttt{High Performance}}$$
+  achieved through the use of behavior flow policies and distributional critics.
+
+- $$\textcolor{green}{\texttt{High Efficiency}}$$ through:
+  
+  1) ***Flow Anchoring*** for the offline dataset constraint.
+  2) ***Noise-conditioned Q-Learning*** for return distributions.
+
+I hope you enjoyed this blog post!! 🤩
+
+## Acknowledgments
+
+Huge thanks to Professor Pingali and Eshan for organizing the content together for easier understanding. 🙏
