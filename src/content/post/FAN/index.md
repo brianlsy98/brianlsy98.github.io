@@ -135,8 +135,8 @@ Here is the variable breakdown:
 - $\epsilon \sim \mathcal{N}(0,I_d)$ : Prior noise vector
 - $t \sim \text{Unif}([0,1])$ : Random time step
 - $a_\omega := \pi_\omega(s, \epsilon)$ : Learning policy action
-- $a_\theta := \epsilon + \int_0^1 v_\theta(s, \tau, a_\tau) d\tau$ : Behavior flow action ***(Iterative ODE)***
-- $a_{t,\omega} := (1 - t)\epsilon + t$
+- $a_\theta := \epsilon + \int_0^1\,v_\theta(s, \tau, a_\tau)\,d\tau$ : Dataset action ***(Iterative ODE)***
+- $a_{t,\omega} := (1 - t)\,\epsilon + t\,a_\omega$
 - $a_\omega$ : Interpolated point at time $t$
 - $\pi_\omega(s, \epsilon) - \epsilon$ : Policy direction
 - $v_\theta(s, t, a_{t,\omega})$ : Behavior flow velocity field ***(Single-step)***
@@ -164,7 +164,7 @@ Understand this as the distributional extension of Q-Learning!! i.e., $$(\mathca
 
 We tested FAN on numerous [D4RL](https://sites.google.com/view/d4rl-anonymous/) and [OGBench](https://seohong.me/projects/ogbench/) tasks. Please check out our paper, FAN, for more details.
 
-![FLOPs and Success Rates](./figures/FLOPvsPerf.svg)
+![FLOPs and Success Rates](./figures/FLOPvsPERF.svg)
 
 To summarize, ***FAN achieves the best success rates on average with the highest computational efficiency***. Specifically, its computational efficiency is similar to that of highly efficient non-distributional offline RL algorithms (e.g., ReBRAC, FQL), while outperforming relatively inefficient distributional approaches (e.g., CODAC, Value Flows). 
 

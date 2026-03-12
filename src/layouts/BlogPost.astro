@@ -71,11 +71,18 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 		});
 	}
 
-	function syncPostSvgTheme() {
+	// Seed with current time so each full page load gets a fresh image URL.
+	let svgRenderRevision = Date.now();
+
+	function syncPostSvgTheme(forceRefresh = false) {
 		const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
 		const svgImages = document.querySelectorAll<HTMLImageElement>(
 			".prose img[src$='.svg'], .prose img[data-svg-base-src]",
 		);
+
+		if (forceRefresh) {
+			svgRenderRevision += 1;
+		}
 
 		svgImages.forEach((img) => {
 			const baseSrc = img.dataset.svgBaseSrc ?? img.getAttribute("src");
@@ -88,6 +95,7 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 
 			const svgUrl = new URL(baseSrc, window.location.href);
 			svgUrl.searchParams.set("theme", theme);
+			svgUrl.searchParams.set("rev", String(svgRenderRevision));
 			img.src = `${svgUrl.pathname}${svgUrl.search}${svgUrl.hash}`;
 		});
 	}
@@ -99,7 +107,7 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 	const observer = new IntersectionObserver(callback);
 	observer.observe(targetHeader);
 
-	syncPostSvgTheme();
+	syncPostSvgTheme(true);
 
 	const windowWithSvgHandlers = window as Window & {
 		__postSvgAfterSwapHandler__?: () => void;
@@ -114,8 +122,8 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 		document.removeEventListener("astro:after-swap", windowWithSvgHandlers.__postSvgAfterSwapHandler__);
 	}
 
-	windowWithSvgHandlers.__postSvgThemeHandler__ = () => syncPostSvgTheme();
-	windowWithSvgHandlers.__postSvgAfterSwapHandler__ = () => syncPostSvgTheme();
+	windowWithSvgHandlers.__postSvgThemeHandler__ = () => syncPostSvgTheme(true);
+	windowWithSvgHandlers.__postSvgAfterSwapHandler__ = () => syncPostSvgTheme(true);
 
 	document.addEventListener("theme-change", windowWithSvgHandlers.__postSvgThemeHandler__);
 	document.addEventListener("astro:after-swap", windowWithSvgHandlers.__postSvgAfterSwapHandler__);
