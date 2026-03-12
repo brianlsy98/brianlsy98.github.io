@@ -74,8 +74,13 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 	// Seed with current time so each full page load gets a fresh image URL.
 	let svgRenderRevision = Date.now();
 
-	function syncPostSvgTheme(forceRefresh = false) {
-		const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+	function syncPostSvgTheme(forceRefresh = false, themeOverride?: string) {
+		const theme =
+			themeOverride === "dark" || themeOverride === "light"
+				? themeOverride
+				: document.documentElement.getAttribute("data-theme") === "dark"
+					? "dark"
+					: "light";
 		const svgImages = document.querySelectorAll<HTMLImageElement>(
 			".prose img[src$='.svg'], .prose img[data-svg-base-src]",
 		);
@@ -111,7 +116,8 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 
 	const windowWithSvgHandlers = window as Window & {
 		__postSvgAfterSwapHandler__?: () => void;
-		__postSvgThemeHandler__?: () => void;
+		__postSvgThemeHandler__?: (event?: Event) => void;
+		__postSvgThemeObserver__?: MutationObserver;
 	};
 
 	if (windowWithSvgHandlers.__postSvgThemeHandler__) {
@@ -121,10 +127,25 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 	if (windowWithSvgHandlers.__postSvgAfterSwapHandler__) {
 		document.removeEventListener("astro:after-swap", windowWithSvgHandlers.__postSvgAfterSwapHandler__);
 	}
+	if (windowWithSvgHandlers.__postSvgThemeObserver__) {
+		windowWithSvgHandlers.__postSvgThemeObserver__.disconnect();
+	}
 
-	windowWithSvgHandlers.__postSvgThemeHandler__ = () => syncPostSvgTheme(true);
+	windowWithSvgHandlers.__postSvgThemeHandler__ = (event?: Event) => {
+		const nextTheme =
+			event instanceof CustomEvent && (event.detail?.theme === "dark" || event.detail?.theme === "light")
+				? event.detail.theme
+				: undefined;
+		syncPostSvgTheme(true, nextTheme);
+	};
 	windowWithSvgHandlers.__postSvgAfterSwapHandler__ = () => syncPostSvgTheme(true);
 
 	document.addEventListener("theme-change", windowWithSvgHandlers.__postSvgThemeHandler__);
 	document.addEventListener("astro:after-swap", windowWithSvgHandlers.__postSvgAfterSwapHandler__);
+
+	windowWithSvgHandlers.__postSvgThemeObserver__ = new MutationObserver(() => syncPostSvgTheme(true));
+	windowWithSvgHandlers.__postSvgThemeObserver__.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ["data-theme"],
+	});
 </script>

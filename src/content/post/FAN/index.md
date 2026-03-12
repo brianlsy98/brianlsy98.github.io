@@ -93,7 +93,7 @@ For instance, [FQL](https://seohong.me/projects/fql/) directly compares action o
 
 ### (Value) Should we model CDFs?
 
-There is actually an alternative way to model return distributions other than using CDFs.
+There is actually an alternative way to model return distributions other than with CDFs.
 
 ![Observation for the distributional critic](./figures/O2.svg)
 
@@ -136,8 +136,7 @@ Here is the variable breakdown:
 - $t \sim \text{Unif}([0,1])$ : Random time step
 - $a_\omega := \pi_\omega(s, \epsilon)$ : Learning policy action
 - $a_\theta := \epsilon + \int_0^1\,v_\theta(s, \tau, a_\tau)\,d\tau$ : Dataset action ***(Iterative ODE)***
-- $a_{t,\omega} := (1 - t)\,\epsilon + t\,a_\omega$
-- $a_\omega$ : Interpolated point at time $t$
+- $a_{t,\omega} := (1 - t)\,\epsilon + t\,a_\omega$ : Interpolated point at time $t$
 - $\pi_\omega(s, \epsilon) - \epsilon$ : Policy direction
 - $v_\theta(s, t, a_{t,\omega})$ : Behavior flow velocity field ***(Single-step)***
 
@@ -154,7 +153,8 @@ $$(\mathcal{T}^{\pi}_{n} Q)(s, a, \epsilon') :\overset{d}{=} r + \gamma \operato
 
 </div>
 
-Don't get afraid with the $\operatorname{ess \sup}$! It stands for "essential supremum", which is just taking the maximum value, ignoring rare, zero-probability edge cases. With the simple environment example above, the critic values are calculated as follows:
+Don't get afraid with the $\operatorname{ess \sup}$! It stands for "essential supremum", which is just taking the maximum value, ignoring rare, zero-probability edge cases.
+With the simple environment example above, the critic values are calculated as follows:
 
 ![Observation for the Noise-conditioned Q-Learning](./figures/NoiseConditionedQ.svg)
 
@@ -162,7 +162,7 @@ Understand this as the distributional extension of Q-Learning!! i.e., $$(\mathca
 
 ## Result
 
-We tested FAN on numerous [D4RL](https://sites.google.com/view/d4rl-anonymous/) and [OGBench](https://seohong.me/projects/ogbench/) tasks. Please check out our paper, FAN, for more details.
+We tested FAN on numerous offline RL benchmarks such as [D4RL](https://sites.google.com/view/d4rl-anonymous/) and [OGBench](https://seohong.me/projects/ogbench/). Please check out our paper, FAN, for more details.
 
 ![FLOPs and Success Rates](./figures/FLOPvsPerf.svg)
 
