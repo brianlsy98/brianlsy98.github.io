@@ -149,3 +149,16 @@ const readingTime: string = remarkPluginFrontmatter.readingTime;
 		attributeFilter: ["data-theme"],
 	});
 </script>
+
+<style>
+	/* Mobile fallback: some browsers don't re-evaluate SVG light/dark colors on theme toggle. */
+	@media (max-width: 1023px) {
+		:global(html[data-theme="dark"] .prose img[data-svg-base-src]) {
+			filter: invert(1) hue-rotate(180deg);
+		}
+
+		:global(html[data-theme="light"] .prose img[data-svg-base-src]) {
+			filter: none;
+		}
+	}
+</style>
