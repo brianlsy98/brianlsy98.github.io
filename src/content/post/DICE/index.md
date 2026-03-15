@@ -1,7 +1,7 @@
 ---
-title: "[DICE] Efficient Yet General Pretrained Model for Integrated Circuits"
+title: "[DICE] Efficient Yet General Pretraining for Integrated Circuits"
 description: "How transistor-level graph contrastive pretraining improves generalization for ICs."
-publishDate: "2026-03-08"
+publishDate: "2025-05-28"
 tags: ["GraphML", "Pretraining"]
 showOnSite: true
 ---
