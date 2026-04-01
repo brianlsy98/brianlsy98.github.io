@@ -15,15 +15,77 @@ const meta = {
 			"Lee" (李) is my family name.
 		</p>
 		<h2>Past</h2>
-		<p><strong class="text-accent">Military Service at the United States Army Garrison (USAG) Humphreys.</strong></p>
-		<p>Sergeant, 18 months service, 557th Military Police Company.</p>
-		<p><strong class="text-accent">B.S. in EECS from Seoul National University (highest honors).</strong></p>
-		<p>Research on mixed-signal ICs (e.g., PLL and ADC) (Advisor: Prof. Deog-Kyoon Jeong).</p>
-		<p><strong class="text-accent">Ph.D. student at UT Austin (Advisor: Prof. David Z. Pan).</strong></p>
-		<p>Research on transistor-level Electronics Design Automation (EDA).</p>
+			<div class="military-entry not-prose my-4 flex items-center gap-3">
+					<img
+						alt="USAG Humphreys"
+						class="bg-global-bg h-14 w-14 shrink-0 rounded-md object-contain p-1"
+						height="56"
+						src="/usarmy.jpg"
+						width="56"
+					/>
+				<div>
+					<p class="mb-0">
+						<strong class="text-accent"
+							>Military Service at the United States Army Garrison (USAG) Humphreys.</strong
+						>
+					</p>
+					<p class="mb-0">Sergeant, 18 months service, 557th Military Police Company.</p>
+				</div>
+			</div>
+		<div class="military-entry not-prose my-4 flex items-center gap-3">
+			<div class="bg-global-bg h-14 w-14 shrink-0 rounded-md p-1">
+				<img
+					alt="Seoul National University"
+					class="h-full w-full object-contain dark:invert dark:hue-rotate-180 dark:contrast-125"
+					height="56"
+					src="/snu.jpg"
+					width="56"
+				/>
+			</div>
+			<div>
+				<p class="mb-0">
+					<strong class="text-accent">B.S. in EECS from Seoul National University (highest honors).</strong>
+				</p>
+				<p class="mb-0">
+					Research on mixed-signal ICs (e.g., PLL and ADC) (Advisor: Prof. Deog-Kyoon Jeong).
+				</p>
+			</div>
+		</div>
+		<div class="military-entry not-prose my-4 flex items-center gap-3">
+			<div class="bg-global-bg h-14 w-14 shrink-0 rounded-md p-1">
+				<img
+					alt="The University of Texas at Austin"
+					class="h-full w-full object-contain dark:invert dark:hue-rotate-180 dark:contrast-125"
+					height="56"
+					src="/utaustin.jpg"
+					width="56"
+				/>
+			</div>
+			<div>
+				<p class="mb-0">
+					<strong class="text-accent">Ph.D. student at UT Austin (Advisor: Prof. David Z. Pan).</strong>
+				</p>
+				<p class="mb-0">Research on transistor-level Electronics Design Automation (EDA).</p>
+			</div>
+		</div>
 		<h2>Current</h2>
-		<p><strong class="text-accent">Ph.D. student at UT Austin (Advisor: Prof. Keshav K. Pingali).</strong></p>
-		<p>Research on Systems and Graph Analytics.</p>
+		<div class="military-entry not-prose my-4 flex items-center gap-3">
+			<div class="bg-global-bg h-14 w-14 shrink-0 rounded-md p-1">
+				<img
+					alt="The University of Texas at Austin"
+					class="h-full w-full object-contain dark:invert dark:hue-rotate-180 dark:contrast-125"
+					height="56"
+					src="/utaustin.jpg"
+					width="56"
+				/>
+			</div>
+			<div>
+				<p class="mb-0">
+					<strong class="text-accent">Ph.D. student at UT Austin (Advisor: Prof. Keshav K. Pingali).</strong>
+				</p>
+				<p class="mb-0">Research on Systems and Graph Analytics.</p>
+			</div>
+		</div>
 		<h2 id="original-intro">Research Focus</h2>
 		<p><strong class="text-accent">Efficient & Expressive ML</strong></p>
 		<p>Specific short term interests are as follows:</p>
@@ -64,5 +126,9 @@ const meta = {
 <style>
 	.about-copy p + p {
 		margin-top: -1rem;
+	}
+
+	.military-entry p + p {
+		margin-top: 0.1rem;
 	}
 </style>

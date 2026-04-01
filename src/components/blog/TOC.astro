@@ -13,7 +13,7 @@ const toc = generateToc(headings);
 ---
 
 <details open class="toc-docked lg:w-64">
-	<summary class="title cursor-pointer text-lg">Table of Contents</summary>
+	<summary class="toc-summary title cursor-pointer text-lg">Table of Contents</summary>
 	<nav class="ms-4 lg:ms-0 lg:w-full">
 		<ul class="mt-4 list-disc ps-5">
 			{toc.map((heading) => <TOCHeading heading={heading} />)}
@@ -50,13 +50,42 @@ const toc = generateToc(headings);
 </script>
 
 <style>
+	:global(details.toc-docked > summary.toc-summary) {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		list-style: none;
+	}
+
+	:global(details.toc-docked > summary.toc-summary::-webkit-details-marker) {
+		display: none;
+	}
+
+	:global(details.toc-docked > summary.toc-summary::marker) {
+		content: "";
+	}
+
+	:global(details.toc-docked > summary.toc-summary::after) {
+		content: "";
+		width: 0.5rem;
+		height: 0.5rem;
+		border-right: 1.5px solid currentColor;
+		border-bottom: 1.5px solid currentColor;
+		transform: rotate(-45deg) translateY(-1px);
+		transition: transform 0.2s ease;
+	}
+
+	:global(details.toc-docked[open] > summary.toc-summary::after) {
+		transform: rotate(45deg) translateY(-1px);
+	}
+
 	@media (min-width: 1024px) {
 		:global(details.toc-docked) {
 			position: fixed;
 			top: 4.55rem;
 			left: max(1.25rem, calc((100vw - 52.8rem) / 2 - 14rem));
-			max-height: 100vh;
-			overflow: auto;
+			max-height: none;
+			overflow: visible;
 			z-index: 40;
 		}
 	}

@@ -17,12 +17,12 @@
 		"format": "prettier -w . --cache"
 	},
 	"dependencies": {
-		"@astrojs/markdown-remark": "^7.0.0",
-		"@astrojs/mdx": "5.0.0",
-		"@astrojs/rss": "4.0.17",
-		"@astrojs/sitemap": "3.7.1",
+		"@astrojs/markdown-remark": "^7.1.0",
+		"@astrojs/mdx": "5.0.3",
+		"@astrojs/rss": "4.0.18",
+		"@astrojs/sitemap": "3.7.2",
 		"@tailwindcss/vite": "4.1.17",
-		"astro": "6.0.3",
+		"astro": "6.1.2",
 		"astro-expressive-code": "^0.41.3",
 		"astro-icon": "^1.1.5",
 		"astro-robots-txt": "^1.0.0",
@@ -46,7 +46,7 @@
 		"unist-util-visit": "^5.0.0"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.7",
+		"@astrojs/check": "^0.9.8",
 		"@biomejs/biome": "^2.3.8",
 		"@iconify-json/mdi": "^1.2.2",
 		"@pagefind/default-ui": "^1.4.0",
@@ -64,7 +64,12 @@
 		"typescript": "^5.9.3"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": ["@biomejs/biome", "@tailwindcss/oxide", "esbuild", "sharp"],
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"@tailwindcss/oxide",
+			"esbuild",
+			"sharp"
+		],
 		"overrides": {
 			"sharp": "^0.34.5"
 		}
