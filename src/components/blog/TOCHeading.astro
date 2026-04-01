@@ -12,16 +12,16 @@ const {
 
 <li class={`${depth > 2 ? "ms-2" : ""}`}>
 	<a
-		class={`line-clamp-2 hover:text-accent ${depth <= 2 ? "mt-3" : "mt-2 text-xs"}`}
-		href={`#${slug}`}><span aria-hidden="true" class="me-0.5">#</span>{text}</a
+		class={`line-clamp-2 ${depth <= 2 ? "mt-3 text-[13px]" : "mt-2 text-[11px]"}`}
+		href={`#${slug}`}>{text}</a
 	>
 	{
 		!!children.length && (
-			<ol>
+			<ul class="list-disc ps-5">
 				{children.map((subheading) => (
 					<Astro.self heading={subheading} />
 				))}
-			</ol>
+			</ul>
 		)
 	}
 </li>

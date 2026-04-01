@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;600;700&display=swap");
 /* would like to ignore ./src/pages/og-image/[slug].png.ts */
 @import "tailwindcss";
 @import "katex/dist/katex.min.css";
@@ -38,6 +39,10 @@
 		}
 	}
 
+	body {
+		font-family: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+	}
+
 	:target {
 		scroll-margin-block: 5ex;
 	}
@@ -69,6 +74,7 @@
 
 	.title {
 		@apply text-accent-2 text-2xl font-semibold;
+		font-family: "Roboto Slab", ui-serif, Georgia, Cambria, serif;
 	}
 }
 

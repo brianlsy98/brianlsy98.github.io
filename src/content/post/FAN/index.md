@@ -8,7 +8,7 @@ showOnSite: true
 
 ## Online vs. Offline RL
 
-Reinforcement learning (RL) is fundamentally about learning through trial and error. An agent takes an action, observes the result, and receives a reward signal. Over time, it learns a policy that aims to maximize this reward. This setting is known as $$\textcolor{green}{\texttt{online RL}}$$, where the agent continuously interacts with the environment while learning. While online RL is flexible, it can be expensive, slow, or unsafe to implement in real-world systems (e.g., deep-sea exploration or space environments).
+Reinforcement learning (RL) is about learning through trial and error. An agent takes an action, observes the result, and receives a reward signal. Over time, it learns a policy that aims to maximize this reward. This setting is known as $$\textcolor{green}{\texttt{online RL}}$$, where the agent continuously interacts with the environment while learning. While online RL is flexible, it can be expensive, slow, or unsafe to implement in real-world systems (e.g., deep-sea exploration or space environments).
 
 In $$\textcolor{green}{\texttt{offline RL}}$$, the agent does not interact with the environment during training.  Instead, it learns from a fixed dataset collected in advance. This setup is generally safer and more cost-effective, especially when real-world interaction is risky. However, it is also more challenging; the agent cannot gather new data to correct its errors and must generalize solely based on the dataset's support.
 
@@ -87,7 +87,7 @@ The computational bottleneck of the flow-based policy constraint comes from solv
 
 For instance, [FQL](https://seohong.me/projects/fql/) directly compares action outcomes $$a_\beta$$ and $$a_\omega$$, which are sampled from the policy distributions $$\pi_\beta$$ and $$\pi_\omega$$, respectively. Therefore, during training, FQL must iterate over $$v_\beta$$ multiple times to obtain $$a_\beta$$, leading to more computation. But,
 
-> What if we compare directions within the flow, rather than the action outputs directly?
+<p align="center"><em>What if we compare directions within the flow, rather than the action outputs directly?</em></p>
 
 ***Our intuition is that accurate sampling of $$a_\beta$$ is actually not a strict requirement for successful $$\pi_\omega$$ learning***. $$a_\beta$$ is merely used for "regularizing" $$a_\omega$$ to the dataset.
 
@@ -101,7 +101,7 @@ Think of the problem of generative modeling. The goal is to find a function that
 The distribution is modeled through this push-forward function $$f$$, which is distinct from the CDF-based modeling.
 Then, similarly,
 
-> What if we model return distributions with push-forwards?
+<p align="center"><em>What if we model return distributions with push-forwards?</em></p>
 
 ***Our intuition is that if we use push-forwards, all distributional critic samples have a similar meaning (i.e., each is a possible return outcome sampled randomly). Consequently, using a single critic sample may be sufficient.*** In contrast, different samples from the distributional quantile critic have different meanings, since each sample models a different part of the return CDF.
 
@@ -172,7 +172,7 @@ To summarize, ***FAN achieves the best success rates on average with the highest
 
 Just remember these about FAN:
 
-- $$\textcolor{green}{\texttt{High Performance}}$$
+- $$\textcolor{green}{\texttt{High Task Performance}}$$
   achieved through the use of behavior flow policies and distributional critics.
 
 - $$\textcolor{green}{\texttt{High Efficiency}}$$ through:

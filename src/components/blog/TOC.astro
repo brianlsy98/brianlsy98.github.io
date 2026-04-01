@@ -13,11 +13,11 @@ const toc = generateToc(headings);
 ---
 
 <details open class="toc-docked lg:w-64">
-	<summary class="title hover:marker:text-accent cursor-pointer text-lg">Table of Contents</summary>
+	<summary class="title cursor-pointer text-lg">Table of Contents</summary>
 	<nav class="ms-4 lg:ms-0 lg:w-full">
-		<ol class="mt-4">
+		<ul class="mt-4 list-disc ps-5">
 			{toc.map((heading) => <TOCHeading heading={heading} />)}
-		</ol>
+		</ul>
 	</nav>
 </details>
 
@@ -54,7 +54,7 @@ const toc = generateToc(headings);
 		:global(details.toc-docked) {
 			position: fixed;
 			top: 4.55rem;
-			left: max(0.75rem, calc((100vw - 48rem) / 2 - 15rem));
+			left: max(1.25rem, calc((100vw - 52.8rem) / 2 - 14rem));
 			max-height: 100vh;
 			overflow: auto;
 			z-index: 40;
