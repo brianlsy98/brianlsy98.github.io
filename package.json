@@ -22,7 +22,7 @@
 		"@astrojs/rss": "4.0.18",
 		"@astrojs/sitemap": "3.7.2",
 		"@tailwindcss/vite": "4.1.17",
-		"astro": "6.1.2",
+		"astro": "6.1.7",
 		"astro-expressive-code": "^0.41.3",
 		"astro-icon": "^1.1.5",
 		"astro-robots-txt": "^1.0.0",
@@ -64,7 +64,12 @@
 		"typescript": "^5.9.3"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": ["@biomejs/biome", "@tailwindcss/oxide", "esbuild", "sharp"],
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"@tailwindcss/oxide",
+			"esbuild",
+			"sharp"
+		],
 		"overrides": {
 			"sharp": "^0.34.5"
 		}
