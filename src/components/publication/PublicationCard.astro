@@ -1,0 +1,108 @@
+---
+import type { Publication } from "@/data/publication";
+
+interface Props {
+	paper: Publication;
+	enlargeSvgFigure?: boolean;
+	showFigure?: boolean;
+	linksBelowSummary?: boolean;
+}
+
+const {
+	paper,
+	enlargeSvgFigure = false,
+	showFigure = true,
+	linksBelowSummary = false,
+} = Astro.props;
+const isSvgFigure = showFigure && paper.figure.toLowerCase().endsWith(".svg");
+const useEnlargedSvg = showFigure && enlargeSvgFigure && isSvgFigure;
+const isFanFigure = paper.figure === "/post/FAN/figures/FLOPvsPERF.svg";
+const svgCropClass =
+	useEnlargedSvg && isFanFigure ? "transform-gpu scale-[1.18] translate-y-[9%]" : "";
+---
+
+<div
+	class:list={[
+		showFigure && "grid items-start gap-4",
+		showFigure && (useEnlargedSvg ? "sm:grid-cols-[320px_1fr]" : "sm:grid-cols-[220px_1fr]"),
+	]}
+>
+	{
+		showFigure && (
+			<div
+				class:list={[
+					"w-full overflow-hidden rounded-lg border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900",
+					useEnlargedSvg ? "aspect-[16/10]" : "aspect-square",
+				]}
+			>
+				<img
+					alt={`Figure for ${paper.title}`}
+					class:list={["h-full w-full object-contain", svgCropClass]}
+					height={useEnlargedSvg ? 320 : 220}
+					src={paper.figure}
+					width={useEnlargedSvg ? 320 : 220}
+				/>
+			</div>
+		)
+	}
+	<div>
+		<h3 class="text-base font-semibold leading-snug">{paper.title}</h3>
+		<p
+			class="mt-1 text-sm"
+			set:html={paper.authors.replaceAll(
+				"Sungyoung Lee",
+				'<span class="text-accent font-semibold underline">Sungyoung Lee</span>',
+			)}
+		/>
+		<p class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium">
+			<span>{paper.venue}</span>
+			{
+				!linksBelowSummary && (
+					<>
+						<a class="cactus-link font-normal" href={paper.paperUrl} target="_blank">
+							Paper
+						</a>
+						{
+							paper.codeUrl && (
+								<a class="cactus-link font-normal" href={paper.codeUrl} target="_blank">
+									Code
+								</a>
+							)
+						}
+						{
+							paper.blogUrl && (
+								<a class="cactus-link font-normal" href={paper.blogUrl} target="_blank">
+									Blog Post
+								</a>
+							)
+						}
+					</>
+				)
+			}
+		</p>
+		<p class="mt-3 text-sm opacity-85">{paper.summary}</p>
+		{
+			linksBelowSummary && (
+				<div class="mt-3 flex flex-wrap gap-3 text-sm">
+					<a class="cactus-link" href={paper.paperUrl} target="_blank">
+						Paper
+					</a>
+					{
+						paper.codeUrl && (
+							<a class="cactus-link" href={paper.codeUrl} target="_blank">
+								Code
+							</a>
+						)
+					}
+					{
+						paper.blogUrl && (
+							<a class="cactus-link" href={paper.blogUrl} target="_blank">
+								Blog Post
+							</a>
+						)
+					}
+				</div>
+			)
+		}
+	</div>
+</div>

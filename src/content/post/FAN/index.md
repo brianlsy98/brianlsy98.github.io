@@ -1,5 +1,5 @@
 ---
-title: "[FAN] Efficiency vs. Expressivity in Offline Reinforcement Learning"
+title: "Efficiency vs. Expressivity in Offline RL"
 description: "How to efficiently leverage flow policies and distributional critics in offline reinforcement learning."
 publishDate: "2026-03-09"
 tags: ["RL", "GenerativeModels"]

@@ -1,0 +1,44 @@
+---
+import PublicationCard from "@/components/publication/PublicationCard.astro";
+import { type Publication, researchPapers } from "@/data/publication";
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "Research publications by Sungyoung Lee.",
+	title: "Publications",
+};
+
+function getPublicationYear(paper: Publication) {
+	const yearMatches = [...paper.venue.matchAll(/\b(19|20)\d{2}\b/g)].map((match) => match[0]);
+	return yearMatches.at(-1) ?? "Unknown";
+}
+
+const groupedByYear = Object.groupBy(researchPapers, getPublicationYear);
+const descYearKeys = Object.keys(groupedByYear).sort((a, b) => {
+	if (a === "Unknown") return 1;
+	if (b === "Unknown") return -1;
+	return +b - +a;
+});
+---
+
+<PageLayout meta={meta}>
+	<section>
+		<h1 class="title mb-12">Publications</h1>
+		{
+			descYearKeys.map((yearKey) => (
+				<section class="mb-16">
+					<h2 id={`year-${yearKey}`} class="title text-accent mb-6 text-xl">
+						{yearKey}
+					</h2>
+					<ul class="space-y-6" role="list">
+						{groupedByYear[yearKey]?.map((paper) => (
+							<li class="rounded-xl border border-zinc-300 p-4 dark:border-zinc-700">
+								<PublicationCard paper={paper} showFigure={false} />
+							</li>
+						))}
+					</ul>
+				</section>
+			))
+		}
+	</section>
+</PageLayout>
