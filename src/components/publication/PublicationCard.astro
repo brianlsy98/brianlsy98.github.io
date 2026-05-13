@@ -14,21 +14,23 @@ const {
 	showFigure = true,
 	linksBelowSummary = false,
 } = Astro.props;
-const isSvgFigure = showFigure && paper.figure.toLowerCase().endsWith(".svg");
-const useEnlargedSvg = showFigure && enlargeSvgFigure && isSvgFigure;
-const isFanFigure = paper.figure === "/post/FAN/figures/FLOPvsPERF.svg";
+const figureSrc = paper.figure ?? "";
+const shouldRenderFigure = showFigure && figureSrc.length > 0;
+const isSvgFigure = shouldRenderFigure && figureSrc.toLowerCase().endsWith(".svg");
+const useEnlargedSvg = shouldRenderFigure && enlargeSvgFigure && isSvgFigure;
+const isFanFigure = ["/post/FAN/figures/FLOPvsPERF.svg", "/research/fan.svg"].includes(figureSrc);
 const svgCropClass =
 	useEnlargedSvg && isFanFigure ? "transform-gpu scale-[1.18] translate-y-[9%]" : "";
 ---
 
 <div
 	class:list={[
-		showFigure && "grid items-start gap-4",
-		showFigure && (useEnlargedSvg ? "sm:grid-cols-[320px_1fr]" : "sm:grid-cols-[220px_1fr]"),
+		shouldRenderFigure && "grid items-start gap-4",
+		shouldRenderFigure && (useEnlargedSvg ? "sm:grid-cols-[320px_1fr]" : "sm:grid-cols-[220px_1fr]"),
 	]}
 >
 	{
-		showFigure && (
+		shouldRenderFigure && (
 			<div
 				class:list={[
 					"w-full overflow-hidden rounded-lg border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900",
@@ -39,7 +41,7 @@ const svgCropClass =
 					alt={`Figure for ${paper.title}`}
 					class:list={["h-full w-full object-contain", svgCropClass]}
 					height={useEnlargedSvg ? 320 : 220}
-					src={paper.figure}
+					src={figureSrc}
 					width={useEnlargedSvg ? 320 : 220}
 				/>
 			</div>

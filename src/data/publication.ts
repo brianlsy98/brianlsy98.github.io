@@ -3,7 +3,7 @@ export interface Publication {
 	authors: string;
 	venue: string;
 	summary: string;
-	figure: string;
+	figure?: string;
 	paperUrl: string;
 	codeUrl?: string;
 	blogUrl?: string;
@@ -18,7 +18,7 @@ export const researchPapers: Publication[] = [
 		venue: "ICML 2026",
 		summary:
 			"TL;DR: Offline distributional RL that achieves SOTA robotics task success rates with efficient training and inference.",
-		figure: "/post/FAN/figures/FLOPvsPERF.svg",
+		figure: "/research/fan.svg",
 		paperUrl: "https://arxiv.org/abs/2605.01663v1",
 		codeUrl: "https://github.com/brianlsy98/FAN",
 		blogUrl: "https://brianlsy98.github.io/posts/fan/",
@@ -31,7 +31,6 @@ export const researchPapers: Publication[] = [
 		venue: "TCAD 2026",
 		summary:
 			"TL;DR: First training-free multimodal LLM framework for end-to-end analog design, unifying topology generation and sizing with waveform/log feedback.",
-		figure: "/research/analogcoder-pro.png",
 		paperUrl: "https://arxiv.org/abs/2508.02518",
 		codeUrl: "https://github.com/laiyao1/AnalogCoderPro",
 	},
@@ -42,7 +41,6 @@ export const researchPapers: Publication[] = [
 		venue: "ICCAD 2025",
 		summary:
 			"TL;DR: Performs Pareto-aware analog sizing with goal-conditioned reinforcement learning for robust trade-offs across process and operating conditions.",
-		figure: "/research/ppass.png",
 		paperUrl: "https://arxiv.org/abs/2507.17003",
 		codeUrl: "https://github.com/SeunggeunKimkr/PPAAS",
 	},
@@ -64,7 +62,6 @@ export const researchPapers: Publication[] = [
 		venue: "AAAI 2025 (Oral)",
 		summary:
 			"TL;DR: Training-free LLM agent for analog circuit design using feedback prompts plus a circuit library; high success rate and 25 designed circuits, outperforming GPT-4o.",
-		figure: "/research/analogcoder.jpg",
 		paperUrl: "https://arxiv.org/abs/2405.14918",
 		codeUrl: "https://github.com/laiyao1/AnalogCoder",
 	},
@@ -74,7 +71,6 @@ export const researchPapers: Publication[] = [
 		venue: "DATE 2024",
 		summary:
 			"TL;DR: Simulated annealing transistor placement handles nonlinear spatial variation in analog circuits, beats prior methods, satisfies layout constraints, and improves optimization control.",
-		figure: "/research/date2024.png",
 		paperUrl: "https://ieeexplore.ieee.org/abstract/document/10546584",
 	},
 	{
@@ -82,7 +78,6 @@ export const researchPapers: Publication[] = [
 		authors: "Jung-Woo Sull, Sungyoung Lee, Deog-Kyoon Jeong",
 		venue: "ITC-CSCC 2022",
 		summary: "TL;DR: Dual-loop quadrature clock corrector in Samsung 28-nm CMOS.",
-		figure: "/research/itccscc2022.png",
 		paperUrl: "https://ieeexplore.ieee.org/abstract/document/9895092",
 	},
 ];

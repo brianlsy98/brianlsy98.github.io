@@ -12,9 +12,9 @@ const { headings } = Astro.props;
 const toc = generateToc(headings);
 ---
 
-<details open class="toc-docked lg:w-64">
+<details open class="toc-docked min-[1080px]:w-64">
 	<summary class="toc-summary title cursor-pointer text-lg">Table of Contents</summary>
-	<nav class="ms-4 lg:ms-0 lg:w-full">
+	<nav class="ms-4 min-[1080px]:ms-0 min-[1080px]:w-full">
 		<ul class="mt-4 list-disc ps-5">
 			{toc.map((heading) => <TOCHeading heading={heading} />)}
 		</ul>
@@ -26,7 +26,7 @@ const toc = generateToc(headings);
 
 	function syncTocPosition() {
 		if (!tocEl) return;
-		if (window.innerWidth < 1024) {
+		if (window.innerWidth < 1080) {
 			tocEl.style.removeProperty("top");
 			return;
 		}
@@ -79,7 +79,7 @@ const toc = generateToc(headings);
 		transform: rotate(45deg) translateY(-1px);
 	}
 
-	@media (min-width: 1024px) {
+	@media (min-width: 1080px) {
 		:global(details.toc-docked) {
 			position: fixed;
 			top: 4.55rem;
