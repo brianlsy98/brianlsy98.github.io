@@ -123,6 +123,8 @@ const selectedPublications = researchPapers.filter((paper) =>
 			}
 
 			img.dataset.svgBaseSrc = baseSrc;
+			// Ensure embedded SVG color-scheme follows the active site theme on mobile + desktop.
+			img.style.setProperty("color-scheme", theme);
 
 			const svgUrl = new URL(baseSrc, window.location.href);
 			svgUrl.searchParams.set("theme", theme);
