@@ -185,16 +185,4 @@ const selectedPublications = researchPapers.filter((paper) =>
 	syncPublicationSvgTheme(true);
 </script>
 
-<style>
-	/* Mobile fallback: some browsers don't re-evaluate SVG light/dark colors on theme toggle. */
-	@media (max-width: 1023px) {
-		:global(html[data-theme="dark"] img[data-publication-svg="true"]) {
-			filter: invert(1) hue-rotate(180deg);
-		}
-
-		:global(html[data-theme="light"] img[data-publication-svg="true"]) {
-			filter: none;
-		}
-	}
-</style>
 </PageLayout>
