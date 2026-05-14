@@ -109,27 +109,31 @@ const selectedPublications = researchPapers.filter((paper) =>
 					? "dark"
 					: "light";
 
-		const svgImages = document.querySelectorAll<HTMLImageElement>("img[data-publication-svg='true']");
+		const svgEmbeds = document.querySelectorAll<HTMLElement>(
+			"img[data-publication-svg='true'], object[data-publication-svg='true']",
+		);
 
 		if (forceRefresh) {
 			publicationSvgRevision += 1;
 		}
 
-		svgImages.forEach((img) => {
-			const baseSrc = img.dataset.svgBaseSrc ?? img.getAttribute("src");
+		svgEmbeds.forEach((element) => {
+			const isObject = element.tagName.toLowerCase() === "object";
+			const sourceAttribute = isObject ? "data" : "src";
+			const baseSrc = element.dataset.svgBaseSrc ?? element.getAttribute(sourceAttribute);
 
 			if (!baseSrc) {
 				return;
 			}
 
-			img.dataset.svgBaseSrc = baseSrc;
+			element.dataset.svgBaseSrc = baseSrc;
 			// Ensure embedded SVG color-scheme follows the active site theme on mobile + desktop.
-			img.style.setProperty("color-scheme", theme);
+			element.style.setProperty("color-scheme", theme);
 
 			const svgUrl = new URL(baseSrc, window.location.href);
 			svgUrl.searchParams.set("theme", theme);
 			svgUrl.searchParams.set("rev", String(publicationSvgRevision));
-			img.src = `${svgUrl.pathname}${svgUrl.search}${svgUrl.hash}`;
+			element.setAttribute(sourceAttribute, `${svgUrl.pathname}${svgUrl.search}${svgUrl.hash}`);
 		});
 	}
 

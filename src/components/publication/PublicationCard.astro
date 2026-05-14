@@ -40,14 +40,26 @@ const svgCropClass =
 					useEnlargedSvg ? "aspect-[16/10]" : "aspect-square",
 				]}
 			>
-				<img
-					alt={`Figure for ${paper.title}`}
-					class:list={["h-full w-full object-contain", svgCropClass]}
-					data-publication-svg={isSvgFigure ? "true" : undefined}
-					height={useEnlargedSvg ? 320 : 220}
-					src={figureSrc}
-					width={useEnlargedSvg ? 320 : 220}
-				/>
+				{
+					isSvgFigure ? (
+						<object
+							aria-label={`Figure for ${paper.title}`}
+							class:list={["h-full w-full object-contain", svgCropClass]}
+							data={figureSrc}
+							data-publication-svg="true"
+							role="img"
+							type="image/svg+xml"
+						/>
+					) : (
+						<img
+							alt={`Figure for ${paper.title}`}
+							class:list={["h-full w-full object-contain", svgCropClass]}
+							height={useEnlargedSvg ? 320 : 220}
+							src={figureSrc}
+							width={useEnlargedSvg ? 320 : 220}
+						/>
+					)
+				}
 			</div>
 		)
 	}
