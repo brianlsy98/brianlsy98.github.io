@@ -96,4 +96,92 @@ const selectedPublications = researchPapers.filter((paper) =>
 			<a class="cactus-link" href="/publications/">View all publications →</a>
 		</p>
 	</section>
+<script>
+	// Mobile browsers can fail to re-evaluate SVG light/dark colors after a theme toggle.
+	// Force a lightweight SVG refresh on theme/data-theme changes.
+	let publicationSvgRevision = Date.now();
+
+	function syncPublicationSvgTheme(forceRefresh = false, themeOverride?: string) {
+		const theme =
+			themeOverride === "dark" || themeOverride === "light"
+				? themeOverride
+				: document.documentElement.getAttribute("data-theme") === "dark"
+					? "dark"
+					: "light";
+
+		const svgImages = document.querySelectorAll<HTMLImageElement>("img[data-publication-svg='true']");
+
+		if (forceRefresh) {
+			publicationSvgRevision += 1;
+		}
+
+		svgImages.forEach((img) => {
+			const baseSrc = img.dataset.svgBaseSrc ?? img.getAttribute("src");
+
+			if (!baseSrc) {
+				return;
+			}
+
+			img.dataset.svgBaseSrc = baseSrc;
+
+			const svgUrl = new URL(baseSrc, window.location.href);
+			svgUrl.searchParams.set("theme", theme);
+			svgUrl.searchParams.set("rev", String(publicationSvgRevision));
+			img.src = `${svgUrl.pathname}${svgUrl.search}${svgUrl.hash}`;
+		});
+	}
+
+	const windowWithPublicationSvgHandlers = window as Window & {
+		__homePublicationSvgAfterSwapHandler__?: () => void;
+		__homePublicationSvgThemeHandler__?: (event?: Event) => void;
+		__homePublicationSvgThemeObserver__?: MutationObserver;
+	};
+
+	if (windowWithPublicationSvgHandlers.__homePublicationSvgThemeHandler__) {
+		document.removeEventListener(
+			"theme-change",
+			windowWithPublicationSvgHandlers.__homePublicationSvgThemeHandler__,
+		);
+	}
+
+	if (windowWithPublicationSvgHandlers.__homePublicationSvgAfterSwapHandler__) {
+		document.removeEventListener(
+			"astro:after-swap",
+			windowWithPublicationSvgHandlers.__homePublicationSvgAfterSwapHandler__,
+		);
+	}
+
+	if (windowWithPublicationSvgHandlers.__homePublicationSvgThemeObserver__) {
+		windowWithPublicationSvgHandlers.__homePublicationSvgThemeObserver__.disconnect();
+	}
+
+	windowWithPublicationSvgHandlers.__homePublicationSvgThemeHandler__ = (event?: Event) => {
+		const nextTheme =
+			event instanceof CustomEvent && (event.detail?.theme === "dark" || event.detail?.theme === "light")
+				? event.detail.theme
+				: undefined;
+		syncPublicationSvgTheme(true, nextTheme);
+	};
+	windowWithPublicationSvgHandlers.__homePublicationSvgAfterSwapHandler__ = () =>
+		syncPublicationSvgTheme(true);
+
+	document.addEventListener(
+		"theme-change",
+		windowWithPublicationSvgHandlers.__homePublicationSvgThemeHandler__,
+	);
+	document.addEventListener(
+		"astro:after-swap",
+		windowWithPublicationSvgHandlers.__homePublicationSvgAfterSwapHandler__,
+	);
+
+	windowWithPublicationSvgHandlers.__homePublicationSvgThemeObserver__ = new MutationObserver(() =>
+		syncPublicationSvgTheme(true),
+	);
+	windowWithPublicationSvgHandlers.__homePublicationSvgThemeObserver__.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ["data-theme"],
+	});
+
+	syncPublicationSvgTheme(true);
+</script>
 </PageLayout>

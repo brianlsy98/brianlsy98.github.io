@@ -43,6 +43,7 @@ const svgCropClass =
 				<img
 					alt={`Figure for ${paper.title}`}
 					class:list={["h-full w-full object-contain", svgCropClass]}
+					data-publication-svg={isSvgFigure ? "true" : undefined}
 					height={useEnlargedSvg ? 320 : 220}
 					src={figureSrc}
 					width={useEnlargedSvg ? 320 : 220}
