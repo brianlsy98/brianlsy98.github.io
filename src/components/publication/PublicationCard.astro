@@ -18,7 +18,7 @@ const figureSrc = paper.figure ?? "";
 const shouldRenderFigure = showFigure && figureSrc.length > 0;
 const isSvgFigure = shouldRenderFigure && figureSrc.toLowerCase().endsWith(".svg");
 const useEnlargedSvg = shouldRenderFigure && enlargeSvgFigure && isSvgFigure;
-const isFanFigure = ["/post/FAN/figures/FLOPvsPERF.svg", "/research/fan.svg"].includes(figureSrc);
+const isFanFigure = figureSrc === "/post/FAN/figures/FLOPvsPERF.svg";
 const svgCropClass =
 	useEnlargedSvg && isFanFigure ? "transform-gpu scale-[1.18] translate-y-[9%]" : "";
 ---
@@ -26,7 +26,7 @@ const svgCropClass =
 <div
 	class:list={[
 		shouldRenderFigure && "grid items-start gap-4",
-		shouldRenderFigure && (useEnlargedSvg ? "sm:grid-cols-[320px_1fr]" : "sm:grid-cols-[220px_1fr]"),
+		shouldRenderFigure && (useEnlargedSvg ? "grid-cols-[320px_1fr]" : "grid-cols-[220px_1fr]"),
 	]}
 >
 	{

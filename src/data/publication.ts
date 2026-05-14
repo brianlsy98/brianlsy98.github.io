@@ -18,7 +18,7 @@ export const researchPapers: Publication[] = [
 		venue: "ICML 2026",
 		summary:
 			"TL;DR: Offline distributional RL that achieves SOTA robotics task success rates with efficient training and inference.",
-		figure: "/research/fan.svg",
+		figure: "/post/FAN/figures/FLOPvsPERF.svg",
 		paperUrl: "https://arxiv.org/abs/2605.01663v1",
 		codeUrl: "https://github.com/brianlsy98/FAN",
 		blogUrl: "https://brianlsy98.github.io/posts/fan/",
@@ -50,7 +50,7 @@ export const researchPapers: Publication[] = [
 		venue: "arXiv 2026",
 		summary:
 			"TL;DR: First self-supervised pretraining for transistor-level circuits, using simulation-free graph data augmentation.",
-		figure: "/research/dice.svg",
+		figure: "/post/DICE/figures/dice.svg",
 		paperUrl: "https://arxiv.org/abs/2502.08949",
 		codeUrl: "https://github.com/brianlsy98/DICE",
 		blogUrl: "https://brianlsy98.github.io/posts/dice/",
