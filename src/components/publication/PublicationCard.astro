@@ -25,8 +25,11 @@ const svgCropClass =
 
 <div
 	class:list={[
-		shouldRenderFigure && "grid items-start gap-4",
-		shouldRenderFigure && (useEnlargedSvg ? "grid-cols-[320px_1fr]" : "grid-cols-[220px_1fr]"),
+		shouldRenderFigure && "grid items-start gap-3 sm:gap-4",
+		shouldRenderFigure &&
+			(useEnlargedSvg
+				? "grid-cols-[minmax(104px,38vw)_1fr] sm:grid-cols-[320px_1fr]"
+				: "grid-cols-[minmax(96px,34vw)_1fr] sm:grid-cols-[220px_1fr]"),
 	]}
 >
 	{
