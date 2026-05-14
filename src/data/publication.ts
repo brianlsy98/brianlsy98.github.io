@@ -46,7 +46,7 @@ export const researchPapers: Publication[] = [
 	},
 	{
 		title: "DICE: Device-level Integrated Circuits Encoder with Graph Contrastive Pretraining",
-		authors: "Sungyoung Lee, Ziyi Wang, Seunggeun Kim, Taekyun Lee, Yao Lai, David Z. Pan",
+		authors: "Sungyoung Lee, Yao Lai, Ziyi Wang, Seunggeun Kim, Taekyun Lee, David Z. Pan",
 		venue: "arXiv 2026",
 		summary:
 			"TL;DR: First self-supervised pretraining for transistor-level circuits, using simulation-free graph data augmentation.",
