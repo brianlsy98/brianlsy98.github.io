@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import XIcon from "./icons/XIcon.astro";
 
 const socialLinks: {
 	friendlyName: string;
@@ -27,9 +28,9 @@ const socialLinks: {
 		name: "mdi:linkedin",
 	},
 	{
-		friendlyName: "Twitter",
+		friendlyName: "X",
 		link: "https://x.com/brianlsy98",
-		name: "mdi:twitter",
+		name: "mdi:X",
 	},
 ];
 ---
@@ -40,7 +41,13 @@ const socialLinks: {
 			socialLinks.map(({ friendlyName, link, name }) => (
 				<li class="flex">
 					<a class="hover:text-link inline-block" href={link} rel="noreferrer" target="_blank">
-						<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name={name} />
+						{
+							name === "mdi:X" ? (
+								<XIcon aria-hidden="true" class="h-5 w-5" focusable="false" />
+							) : (
+								<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name={name} />
+							)
+						}
 						<span class="sr-only">{friendlyName}</span>
 					</a>
 				</li>

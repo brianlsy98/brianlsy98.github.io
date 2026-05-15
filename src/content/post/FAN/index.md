@@ -161,7 +161,7 @@ Understand this as the distributional extension of Q-Learning!! i.e., $$(\mathca
 
 ## Result
 
-We tested FAN on numerous offline RL benchmarks such as [D4RL](https://sites.google.com/view/d4rl-anonymous/) and [OGBench](https://seohong.me/projects/ogbench/). Please check out our paper, FAN, for more details.
+We tested FAN on numerous offline RL benchmarks such as [D4RL](https://sites.google.com/view/d4rl-anonymous/) and [OGBench](https://seohong.me/projects/ogbench/). Please check out our paper, [FAN](https://arxiv.org/abs/2605.01663), for more details.
 
 ![FLOPs and Success Rates](/post/FAN/figures/FLOPvsPERF.svg)
 

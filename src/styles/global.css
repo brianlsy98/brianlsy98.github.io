@@ -22,6 +22,7 @@
 	html {
 		color-scheme: light dark;
 		accent-color: var(--color-accent);
+		background-color: var(--color-global-bg);
 		scrollbar-gutter: stable;
 
 		&[data-theme="light"] {
@@ -40,6 +41,7 @@
 	}
 
 	body {
+		background-color: var(--color-global-bg);
 		font-family: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 	}
 
@@ -49,6 +51,50 @@
 
 	@view-transition {
 		navigation: auto;
+	}
+
+	::view-transition {
+		background-color: var(--color-global-bg);
+	}
+
+	/* biome-ignore lint/correctness/noUnknownTypeSelector: View Transition pseudo-elements use the built-in root transition name. */
+	html[data-theme="dark"]::view-transition-old(root) {
+		animation-duration: 180ms;
+		animation-timing-function: ease;
+		background-color: var(--color-global-bg);
+		mix-blend-mode: normal;
+	}
+
+	/* biome-ignore lint/correctness/noUnknownTypeSelector: View Transition pseudo-elements use the built-in root transition name. */
+	html[data-theme="dark"]::view-transition-new(root) {
+		animation-duration: 180ms;
+		animation-timing-function: ease;
+		background-color: var(--color-global-bg);
+		mix-blend-mode: normal;
+	}
+
+	/* biome-ignore lint/correctness/noUnknownTypeSelector: View Transition pseudo-elements use the built-in root transition name. */
+	html[data-theme="dark"]::view-transition-old(root) {
+		animation-name: dark-page-fade-out;
+	}
+
+	/* biome-ignore lint/correctness/noUnknownTypeSelector: View Transition pseudo-elements use the built-in root transition name. */
+	html[data-theme="dark"]::view-transition-new(root) {
+		animation-name: dark-page-fade-in;
+	}
+
+	@keyframes dark-page-fade-out {
+		to {
+			filter: blur(8px);
+			opacity: 0;
+		}
+	}
+
+	@keyframes dark-page-fade-in {
+		from {
+			filter: blur(8px);
+			opacity: 0;
+		}
 	}
 
 	/* Astro image responsive styles, modified from -> https://docs.astro.build/en/guides/images/#responsive-image-styles */

@@ -1,5 +1,6 @@
 ---
 import type { Publication } from "@/data/publication";
+import { siteConfig } from "@/site.config";
 
 interface Props {
 	paper: Publication;
@@ -21,6 +22,18 @@ const useEnlargedSvg = shouldRenderFigure && enlargeSvgFigure && isSvgFigure;
 const isFanFigure = figureSrc === "/post/FAN/figures/FLOPvsPERF.svg";
 const svgCropClass =
 	useEnlargedSvg && isFanFigure ? "transform-gpu scale-[1.18] translate-y-[9%]" : "";
+
+const siteOrigin = new URL(siteConfig.url).origin;
+let blogUrl = paper.blogUrl;
+let blogUrlIsExternal = false;
+
+if (blogUrl) {
+	const parsedBlogUrl = new URL(blogUrl, siteConfig.url);
+	blogUrlIsExternal = parsedBlogUrl.origin !== siteOrigin;
+	blogUrl = blogUrlIsExternal
+		? paper.blogUrl
+		: `${parsedBlogUrl.pathname}${parsedBlogUrl.search}${parsedBlogUrl.hash}`;
+}
 ---
 
 <div
@@ -88,8 +101,12 @@ const svgCropClass =
 							)
 						}
 						{
-							paper.blogUrl && (
-								<a class="cactus-link font-normal" href={paper.blogUrl} target="_blank">
+							blogUrl && (
+								<a
+									class="cactus-link font-normal"
+									href={blogUrl}
+									target={blogUrlIsExternal ? "_blank" : undefined}
+								>
 									Blog Post
 								</a>
 							)
@@ -113,8 +130,12 @@ const svgCropClass =
 						)
 					}
 					{
-						paper.blogUrl && (
-							<a class="cactus-link" href={paper.blogUrl} target="_blank">
+						blogUrl && (
+							<a
+								class="cactus-link"
+								href={blogUrl}
+								target={blogUrlIsExternal ? "_blank" : undefined}
+							>
 								Blog Post
 							</a>
 						)
